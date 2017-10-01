@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# profilerc
+# Referenced by ENV in dash, ksh, bash --posix, mksh etc.
+
+[ "${-##*i*}" = "$-" ] || {
+    rc=;
+    if
+        [ "$(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")")" = /bin/dash ];
+    then
+        rc=$HOME/.dashrc;
+    else
+        case $KSH_VERSION in
+            (*MIRBSD\ KSH*)
+                rc=$HOME/.mkshrc;;
+            (*AJM*)
+                rc=$HOME/.kshrc;;
+        esac;
+    fi;
+    test -e "$rc" &&
+        . "$rc";
+    unset -v rc;
+};
+
+#  vim: set ts=4 sw=4 tw=0 et :
