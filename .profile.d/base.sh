@@ -256,7 +256,7 @@ ProfileRcBaseUser () {
     X_MAIL_VIEWER=/usr/bin/claws-mail;
     X_MAIL_VIEWER_OPTS=;
     X_PDF_VIEWER=/usr/bin/mupdf;
-    X_PDF_VIEWER_OPTS=;
+    X_PDF_VIEWER_OPTS='-r$X_DPI';
     X_VIDEO_PLAYER=/usr/bin/mpv;
     X_VIDEO_PLAYER_OPTS=--autofit=50%x50%\|--stop-screensaver;
     X_VISUAL=/usr/bin/vim;

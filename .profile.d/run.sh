@@ -109,7 +109,7 @@ ProfileRcRunXCustoms () {
     /usr/bin/setxkbmap -model pc105 -layout us \
         -variant altgr-intl -option compose:menu;
     /usr/bin/xmodmap "$XDG_CONFIG_HOME/"xmodmap/us-altgr-intl-german.rc;
-    /usr/bin/xinput --disable FJ\ Camera;
+    /usr/bin/xinput --disable FJ\ Camera:\ FJ\ Camera;
     /usr/bin/xinput --disable SynPS/2\ Synaptics\ TouchPad;
     /usr/bin/xkbset m ma 60 10 10 5 2; /usr/bin/xkbset exp =m;
     /usr/bin/xprop -root \
@@ -122,6 +122,8 @@ ProfileRcRunXCustoms () {
     /usr/bin/xset r rate 220 150;
     /usr/bin/xsetroot -name "$X_XCLIENT";
     /usr/bin/xsetroot -cursor_name left_ptr;
+
+    X_PDF_VIEWER_OPTS=-r$X_DPI;
 };
 
 ProfileRcRunXDaemons () {

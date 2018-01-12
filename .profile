@@ -45,6 +45,7 @@ export ENV=$HOME/.profile.d/profilerc;
 
 . "$HOME/".profile.d/ext.sh;
 \ProfileRcExtAtSpi;
+\ProfileRcExtBc;
 \ProfileRcExtGo;
 \ProfileRcExtHaskell;
 \ProfileRcExtInfo;

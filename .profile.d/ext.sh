@@ -6,6 +6,10 @@ ProfileRcExtAtSpi () {
     export NO_AT_BRIDGE=1;
 };
 
+ProfileRcExtBc () {
+    export BC_LINE_LENGTH=0;
+};
+
 ProfileRcExtDbus () {
     : "${XDG_RUNTIME_DIR:=/run/user/$(/usr/bin/id -u)}";
     : "${DBUS_SESSION_BUS_ADDRESS:=unix:path=$XDG_RUNTIME_DIR/bus}";
