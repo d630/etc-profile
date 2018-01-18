@@ -156,4 +156,4 @@ ProfileRcExtX () {
     XUSERFILESEARCHPATH=$XAPPLRESDIR/%L/%N%C:$XAPPLRESDIR/%l/%N%C:$XAPPLRESDIR/%N%C:$XAPPLRESDIR/%L/%N:$XAPPLRESDIR/%l/%N:$XAPPLRESDIR/%N;
 };
 
-# vim: set ts=4 sw=4 tw=0 et :
+# vim: set ft=sh :

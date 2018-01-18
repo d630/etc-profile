@@ -294,4 +294,4 @@ ProfileRcBaseXdgExt () {
         . "$XDG_CONFIG_HOME/"vars.priv;
 };
 
-# vim: set ts=4 sw=4 tw=0 et :
+# vim: set ft=sh :
