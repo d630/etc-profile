@@ -3,96 +3,96 @@
 # ProfileRcBase.
 
 ProfileRcBaseAlias () {
-    alias command=command\ ;
-    alias ls=/bin/ls\ -h\ --color=auto;
-    alias mkdir=/bin/mkdir\ -v;
-    alias o=open\ ;
-    alias sudo='/usr/bin/sudo -H --prompt="%u(%U): " ';
+    alias 'command=command ';
+    alias 'ls=/bin/ls -h --color=auto';
+    alias 'mkdir=/bin/mkdir -v';
+    alias 'o=open ';
+    alias 'sudo=/usr/bin/sudo -H --prompt="%u(%U): " ';
 
-    alias about=o\ -A\ about\ -f;
-    alias c=o\ -A\ compose\ -f;
-    alias cdog=o\ -A\ cdog\ -f;
-    alias dog=o\ -A\ dog\ -f;
-    alias e=o\ -A\ edit\ -f;
-    alias gc=o\ -A\ gcompose\ -f;
-    alias ge=o\ -A\ gedit\ -f;
-    alias gv=o\ -A\ gview\ -f;
-    alias v=o\ -A\ view\ -f;
-    alias vc=o\ -A\ vcompose\ -f;
-    alias ve=o\ -A\ vedit\ -f;
-    alias vv=o\ -A\ vview\ -f;
+    alias 'about=o -A about -f';
+    alias 'c=o -A compose -f';
+    alias 'cdog=o -A cdog -f';
+    alias 'dog=o -A dog -f';
+    alias 'e=o -A edit -f';
+    alias 'gc=o -A gcompose -f';
+    alias 'ge=o -A gedit -f';
+    alias 'gv=o -A gview -f';
+    alias 'v=o -A view -f';
+    alias 'vc=o -A vcompose -f';
+    alias 've=o -A vedit -f';
+    alias 'vv=o -A vview -f';
 
-    alias L=/bin/less\ -L;
-    alias chmod=/bin/chmod\ -v;
-    alias chown=/bin/chown\ -v;
-    alias console-color=\\ProfileRcBaseConsole;
-    alias cp=/bin/cp\ -v;
-    alias d=/usr/local/bin/dacti;
-    alias dash=/usr/bin/rlwrap\ -ic\ /bin/dash;
-    alias dc=/usr/bin/rlwrap\ /usr/bin/dc;
-    alias df=/bin/df\ -h;
-    alias diff=/usr/bin/colordiff;
-    alias dir=/bin/dir\ -h\ --color=never;
-    alias du=/usr/bin/du\ -h;
-    alias ed=/usr/bin/rlwrap\ /bin/ed\ -Gp\ '\>\ ';
-    alias egrep=/bin/grep\ -E\ --color=auto;
-    alias fgrep=/bin/grep\ -F\ --color=auto;
-    alias gcc=/usr/bin/colorgcc;
-    alias grep=/bin/grep\ --color=auto;
-    alias l1=ls\ -1;
-    alias l=ls;
-    alias la1=ls\ -1a;
-    alias la=ls\ -a;
-    alias lal=ls\ -al;
-    alias ll=ls\ -l;
-    alias lla=ls\ -al;
-    alias ln=/bin/ln\ -v;
-    alias m=mkdir\ -p;
-    alias make=/usr/bin/colormake;
-    alias mv=/bin/mv\ -v;
-    alias nawk=/usr/bin/original-awk;
-    alias nohup=/usr/bin/nohup\ ;
-    alias rgrep=/bin/grep\ -r\ --color=auto;
-    alias rm=/bin/rm\ -v;
-    alias rsync=/usr/bin/rsync\ -v;
-    alias sac=sudo\ /usr/bin/apt-cache;
-    alias sag=sudo\ /usr/bin/apt-get;
-    alias tail=/usr/bin/colortail;
-    alias vdir=/bin/vdir\ -h\ --color=never;
-    alias vf=/usr/bin/vifm;
+    alias 'L=/bin/less -L';
+    alias 'chmod=/bin/chmod -v';
+    alias 'chown=/bin/chown -v';
+    alias 'console-color=\ProfileRcBaseConsole';
+    alias 'cp=/bin/cp -v';
+    alias 'd=/usr/local/bin/dacti';
+    alias 'dash=/usr/bin/rlwrap -ic /bin/dash';
+    alias 'dc=/usr/bin/rlwrap /usr/bin/dc';
+    alias 'df=/bin/df -h';
+    alias 'diff=/usr/bin/colordiff';
+    alias 'dir=/bin/dir -h --color=never';
+    alias 'du=/usr/bin/du -h';
+    alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
+    alias 'egrep=/bin/grep -E --color=auto';
+    alias 'fgrep=/bin/grep -F --color=auto';
+    alias 'gcc=/usr/bin/colorgcc';
+    alias 'grep=/bin/grep --color=auto';
+    alias 'l1=ls -1';
+    alias 'l=ls';
+    alias 'la1=ls -1a';
+    alias 'la=ls -a';
+    alias 'lal=ls -al';
+    alias 'll=ls -l';
+    alias 'lla=ls -al';
+    alias 'ln=/bin/ln -v';
+    alias 'm=mkdir -p';
+    alias 'make=/usr/bin/colormake';
+    alias 'mv=/bin/mv -v';
+    alias 'nawk=/usr/bin/original-awk';
+    alias 'nohup=/usr/bin/nohup ';
+    alias 'rgrep=/bin/grep -r --color=auto';
+    alias 'rm=/bin/rm -v';
+    alias 'rsync=/usr/bin/rsync -v';
+    alias 'sac=sudo /usr/bin/apt-cache';
+    alias 'sag=sudo /usr/bin/apt-get';
+    alias 'tail=/usr/bin/colortail';
+    alias 'vdir=/bin/vdir -h --color=never';
+    alias 'vf=/usr/bin/vifm';
 
-    alias XX=.\ startx.sh;
-    alias ap=audio-player;
-    alias d630=mutt--d630;
-    alias dz=daemonize\ ;
-    alias fb=file-browser;
-    alias ff=find-file;
-    alias filetest=tcsh--filetest;
-    alias fs=find-string;
-    alias hotmail=mutt--hotmail;
-    alias posteo1=mutt--posteo1;
-    alias posteo=mutt--posteo;
-    alias s=setsidw\ ;
-    alias spool=mutt--spool;
-    alias t=x-terminal\ ;
-    alias wl=wless;
-    alias wv=wvim;
-    alias xap=x-audio-player;
-    alias xiv=x-image-viewer;
-    alias xpv=x-pdf-viewer;
-    alias xvp=x-video-player;
-    alias zeit=show-zeit;
+    alias 'XX=. startx.sh';
+    alias 'ap=audio-player';
+    alias 'd630=mutt--d630';
+    alias 'dz=daemonize ';
+    alias 'fb=file-browser';
+    alias 'ff=find-file';
+    alias 'filetest=tcsh--filetest';
+    alias 'fs=find-string';
+    alias 'hotmail=mutt--hotmail';
+    alias 'posteo1=mutt--posteo1';
+    alias 'posteo=mutt--posteo';
+    alias 's=setsidw ';
+    alias 'spool=mutt--spool';
+    alias 't=x-terminal ';
+    alias 'wl=wless';
+    alias 'wv=wvim';
+    alias 'xap=x-audio-player';
+    alias 'xiv=x-image-viewer';
+    alias 'xpv=x-pdf-viewer';
+    alias 'xvp=x-video-player';
+    alias 'zeit=show-zeit';
 
-    alias :q=exit;
-    alias :x=exit;
-    alias chdir=cd;
-    alias login=exec\ /bin/login;
-    alias newgrp=exec\ /usr/bin/newgrp;
-    alias not=\!\ ;
-    alias p=pwd;
-    alias redirect=exec\ ;
-    alias stop=kill\ -s\ STOP\ ;
-    alias unsetenv=unset;
+    alias ':q=exit';
+    alias ':x=exit';
+    alias 'chdir=cd';
+    alias 'login=exec /bin/login';
+    alias 'newgrp=exec /usr/bin/newgrp';
+    alias 'not=! ';
+    alias 'p=pwd';
+    alias 'redirect=exec ';
+    alias 'stop=kill -s STOP ';
+    alias 'unsetenv=unset';
 };
 
 ProfileRcBaseConsole ()
@@ -130,6 +130,10 @@ case $TERM in
 esac;
 
 ProfileRcBaseLocale () {
+	export \
+		LC_COLLATE \
+		LC_CTYPE;
+
     #LANG=
     #              Used  to  determine the locale category for any category
     #              not specifically selected with a variable starting  with
@@ -137,13 +141,13 @@ ProfileRcBaseLocale () {
     #LC_ALL=
     #              This  variable overrides the value of LANG and any other
     #              LC_ variable specifying a locale category.
-    export LC_COLLATE=C.UTF-8;
+    LC_COLLATE=C.UTF-8;
     #              This variable determines the collation order  used  when
     #              sorting  the  results  of pathname expansion, and deter‐
     #              mines the behavior  of  range  expressions,  equivalence
     #              classes,  and collating sequences within pathname expan‐
     #              sion and pattern matching.
-    export LC_CTYPE=$LANG;
+    LC_CTYPE=$LANG;
     #              This variable determines the interpretation  of  charac‐
     #              ters  and the behavior of character classes within path‐
     #              name expansion and pattern matching.
@@ -156,10 +160,14 @@ ProfileRcBaseLocale () {
 };
 
 ProfileRcBaseMail () {
-    export MAIL=/var/mail/$USER;
+	export \
+		MAIL \
+		MAILCHECK;
+
+    MAIL=/var/mail/$USER;
     #     The name of a mail file, that will be checked for the
     #     arrival of new mail.  Overridden by MAILPATH.
-    export MAILCHECK=0;
+    MAILCHECK=0;
     #     The frequency in seconds that the shell checks for the
     #     arrival of mail in the files specified by the MAILPATH
     #     or the MAIL file.  If set to 0, the check will occur
@@ -212,7 +220,8 @@ ProfileRcBaseTerminfo () {
 };
 
 ProfileRcBaseTz () {
-    export TZ=Europe/Berlin;
+    export TZ;
+    TZ=Europe/Berlin;
 };
 
 ProfileRcBaseUser () {

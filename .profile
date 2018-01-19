@@ -27,7 +27,8 @@
 
 umask 027;
 
-export ENV=$HOME/.profile.d/profilerc;
+export ENV;
+ENV=$HOME/.profile.d/profilerc;
 {
     ulimit -n "$(($(ulimit -n) * 8))";
     ulimit -s "$(($(ulimit -s) * 8))";
@@ -62,6 +63,7 @@ export ENV=$HOME/.profile.d/profilerc;
 \ProfileRcExtUrldiff;
 \ProfileRcExtX;
 
+export PATH;
 PATH=;
 while
     read -r p;
@@ -84,10 +86,10 @@ $GOPATH/bin
 $HOME/.cabal/bin
 P
 
+PATH=${PATH%:};
 unset -v p;
-export PATH=${PATH%:};
 
-[ "${-##*i*}" = "$-" ] || {
+test "${-##*i*}" = "$-" || {
     . "$HOME/".profile.d/run.sh;
     \ProfileRcRunGpg;
     \ProfileRcRunKeychain;

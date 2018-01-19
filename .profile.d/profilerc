@@ -3,10 +3,11 @@
 # profilerc
 # Referenced by ENV in dash, ksh, bash --posix, mksh etc.
 
-[ "${-##*i*}" = "$-" ] || {
+test "${-##*i*}" = "$-" || {
     rc=;
     if
-        [ "$(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")")" = /bin/dash ];
+        test \
+			"$(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")")" = /bin/dash;
     then
         rc=$HOME/.dashrc;
     else

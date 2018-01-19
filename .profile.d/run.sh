@@ -14,8 +14,13 @@ ProfileRcRunGpg () {
     #killall gpg-agent 2>/dev/null
     # rm "${HOME}/local/var/cache/gpg-agent-info" 2>/dev/null
     #eval "$(gpg-agent --daemon)"
-    export GPG_TTY=$(/usr/bin/tty);
-    export GPG_AGENT_INFO=;
+
+	export \
+		GPB_TTY \
+		GPG_AGENT_INFO;
+
+    GPG_TTY=$(/usr/bin/tty);
+    GPG_AGENT_INFO=;
     /usr/bin/gpg-connect-agent updatestartuptty /bye;
 };
 
@@ -54,7 +59,7 @@ ProfileRcRunKeychainInteractiv () {
 
 ProfileRcRunLsSet ()
 if
-    [ "${TERM##*linux*}" = "$TERM" ];
+    test "${TERM##*linux*}" = "$TERM";
 then
     if
         test -e "${XDG_RUNTIME_DIR:?}/DAYLIGHT";
@@ -74,6 +79,8 @@ else
 fi;
 
 ProfileRcRunXCustoms () {
+	export X_DPI;
+
     if
         /usr/bin/xrandr |
         /bin/grep 'HDMI-1 disconnected';
@@ -81,13 +88,13 @@ ProfileRcRunXCustoms () {
         /usr/bin/xrandr \
             --output eDP-1 --dpi 192 --auto \
             --output HDMI-1 --off;
-        export X_DPI=192;
+        X_DPI=192;
         "$XDG_BIN_HOME/"audio-device PCH;
     else
         /usr/bin/xrandr \
             --output HDMI-1 --dpi 96 --auto \
             --output eDP-1 --off;
-        export X_DPI=96;
+        X_DPI=96;
         "$XDG_BIN_HOME/"audio-device HDMI;
     fi;
 
@@ -96,13 +103,16 @@ ProfileRcRunXCustoms () {
 
     case $X_XCLIENT in
         (bspwm)
-            export _JAVA_AWT_WM_NONREPARENTING=1;;
+            export _JAVA_AWT_WM_NONREPARENTING;
+            _JAVA_AWT_WM_NONREPARENTING=1;;
         (cwm)
-            export X_XCLIENT=openbsd-cwm;;
+            export X_XCLIENT;
+            X_XCLIENT=openbsd-cwm;;
         (openbsd-cwm|spectrwm)
             :;;
         (*)
-            export X_XCLIENT=x-terminal-tabbed;;
+            export X_XCLIENT;
+            X_XCLIENT=x-terminal-tabbed;;
     esac;
 
     # /usr/bin/numlockx off;
