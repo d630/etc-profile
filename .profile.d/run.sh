@@ -16,7 +16,7 @@ ProfileRcRunGpg () {
     #eval "$(gpg-agent --daemon)"
 
 	export \
-		GPB_TTY \
+		GPP_TTY \
 		GPG_AGENT_INFO;
 
     GPG_TTY=$(/usr/bin/tty);
