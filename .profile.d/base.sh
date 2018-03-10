@@ -3,6 +3,12 @@
 # ProfileRcBase.
 
 ProfileRcBaseAlias () {
+	local p;
+	for p in /sbin/?* /usr/sbin/?*
+	do
+		alias "${p##*/}=sudo $p ";
+	done;
+
     alias 'command=command ';
     alias 'ls=/bin/ls -h --color=auto';
     alias 'mkdir=/bin/mkdir -v';
