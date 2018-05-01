@@ -107,7 +107,7 @@ case $TERM in
         # export TERM=linux-16color
         /usr/bin/setterm --blank 0 --powerdown 0 --powersave 0 \
             --bfreq 0 --blength 0 1>/dev/null 2>&1;
-        /usr/bin/sudo /sbin/kbdrate -d 100 -r 60 1>/dev/null 2>&1;
+        /usr/bin/sudo /sbin/kbdrate -d 250 -r 30.0 1>/dev/null 2>&1;
         /usr/bin/sudo /usr/bin/loadkeys \
             "$XDG_CONFIG_HOME/"xmodmap/us-altgr-german.rc.map 1>/dev/null 2>&1;
         /usr/bin/mesg y 2>/dev/null;
