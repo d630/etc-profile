@@ -76,14 +76,15 @@ ProfileRcExtInfo () {
 };
 
 ProfileRcExtLess () {
-    local -;
-    set -a;
+	local -;
+	set -a;
 
-    LESS=-R\ -cfMS\ --shift\ 5;
-    LESSCOLOR=1;
-    # LESSCOLORIZER=$XDG_BIN_HOME/highlighter;
-    LESSHISTFILE=/dev/null;
-    LESSOPEN='|"$XDG_BIN_HOME/"lesspipew %s';
+	LESSCHARSET=UTF-8;
+	# LESSCOLORIZER=$XDG_BIN_HOME/highlighter;
+	LESS=-R\ -cfMS\ --shift\ 5;
+	LESSCOLOR=1;
+	LESSHISTFILE=/dev/null;
+	LESSOPEN='|"$XDG_BIN_HOME/"lesspipew %s';
 };
 
 ProfileRcExtLs () {

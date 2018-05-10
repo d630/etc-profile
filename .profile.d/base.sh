@@ -147,7 +147,7 @@ ProfileRcBaseLocale () {
     #LC_ALL=
     #              This  variable overrides the value of LANG and any other
     #              LC_ variable specifying a locale category.
-    LC_COLLATE=C.UTF-8;
+    LC_COLLATE=C;
     #              This variable determines the collation order  used  when
     #              sorting  the  results  of pathname expansion, and deter‐
     #              mines the behavior  of  range  expressions,  equivalence
