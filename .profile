@@ -52,6 +52,7 @@ ENV=$HOME/.profile.d/profilerc;
 \ProfileRcExtInfo;
 \ProfileRcExtLess;
 \ProfileRcExtMan;
+\ProfileRcExtNet;
 \ProfileRcExtNode;
 \ProfileRcExtPerl;
 \ProfileRcExtPython;

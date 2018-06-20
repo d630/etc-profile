@@ -100,6 +100,11 @@ ProfileRcExtMan () {
     MANWIDTH=80;
 };
 
+ProfileRcExtNet () {
+	export DOTNET_CLI_TELEMETRY_OPTOUT;
+	DOTNET_CLI_TELEMETRY_OPTOUT=1;
+};
+
 ProfileRcExtNode () {
     PATH=$XDG_OPT_HOME/npm/bin:$PATH;
 
