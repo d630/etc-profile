@@ -33,6 +33,11 @@ ProfileRcExtDbus () {
         X_XCLIENT;
 };
 
+ProfileRcExtFreetype () {
+	export FREETYPE_PROPERTIES;
+	FREETYPE_PROPERTIES=truetype:interpreter-version=35;
+}
+
 ProfileRcExtGlib () {
     /usr/bin/gsettings set org.gtk.Settings.FileChooser startup-mode cwd;
     /usr/bin/gsettings set org.gnome.desktop.interface gtk-key-theme Emacs;
