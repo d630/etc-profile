@@ -68,11 +68,11 @@ ProfileRcExtGo () {
     PATH=$GOPATH/bin:$PATH;
 };
 
-ProfileRcExtHaskell () {
+ProfileRcExtHaskellCabal () {
     PATH=$HOME/.cabal/bin:$PATH;
 
     export MANPATH;
-    MANPATH=$HOME/.cabal/share/man:$MANPATH;
+    MANPATH=$XDG_OPT_HOME/share/man:$MANPATH;
 };
 
 ProfileRcExtInfo () {
@@ -111,10 +111,18 @@ ProfileRcExtNet () {
 };
 
 ProfileRcExtNode () {
-    PATH=$XDG_OPT_HOME/npm/bin:$PATH;
-
     export NODE_PATH;
     NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript;
+};
+
+ProfileRcExtNodeNpm () {
+    PATH=$XDG_OPT_HOME/npm/bin:$PATH;
+
+	export NPM_CONFIG_USERCONFIG;
+	NPM_CONFIG_USERCONFIG=$HOME/.npmrc;
+
+	export MANPATH;
+	MANPATH=$XDG_OPT_HOME/npm/share/man:$MANPATH;
 };
 
 ProfileRcExtPerl () {
@@ -123,13 +131,25 @@ ProfileRcExtPerl () {
     MANPATH=$HOME/perl5/man:$MANPATH;
 };
 
+ProfileRcExtPerlCpanm () {
+    export PERL_CPANM_HOME;
+    PERL_CPANM_HOME=$XDG_OPT_HOME/cpanm;
+};
+
+ProfileRcExtPhpComposer () {
+	PATH=$XDG_OPT_HOME/composer/vendor/bin:$PATH;
+
+	export COMPOSER_HOME;
+	COMPOSER_HOME=$XDG_OPT_HOME/composer;
+};
+
 ProfileRcExtPython () {
 	export \
 		PYTHONBASE \
 		PYTHONPATH;
 
-    PYTHONBASE="$XDG_OPT_HOME/python";
-    PYTHONPATH="$PYTHONBASE/lib/python2.7/site-packages";
+    PYTHONBASE=$XDG_OPT_HOME/python;
+    PYTHONPATH=$PYTHONBASE/lib/python2.7/site-packages;
 };
 
 ProfileRcExtQt () {

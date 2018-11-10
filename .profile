@@ -49,13 +49,16 @@ ENV=$HOME/.profile.d/profilerc;
 \ProfileRcExtBc;
 \ProfileRcExtFreetype;
 \ProfileRcExtGo;
-\ProfileRcExtHaskell;
+\ProfileRcExtHaskellCabal;
 \ProfileRcExtInfo;
 \ProfileRcExtLess;
 \ProfileRcExtMan;
 \ProfileRcExtNet;
 \ProfileRcExtNode;
+\ProfileRcExtNodeNpm;
 \ProfileRcExtPerl;
+\ProfileRcExtPerlCpanm;
+\ProfileRcExtPhpComposer;
 \ProfileRcExtPython;
 \ProfileRcExtReadline;
 \ProfileRcExtTaskum;
@@ -82,10 +85,11 @@ done <<P
 /usr/local/bin
 $HOME/sbin
 $HOME/bin
-$PERL_LOCAL_LIB_ROOT/bin
-$HOME/opt/npm/bin
 $GOPATH/bin
-$HOME/.cabal/bin
+$PERL_LOCAL_LIB_ROOT/bin
+$XDG_OPT_HOME/cabal/bin
+$XDG_OPT_HOME/composer/vendor/bin
+$XDG_OPT_HOME/npm/bin
 P
 
 PATH=${PATH%:};
