@@ -99,7 +99,8 @@ ProfileRcRunXCustoms () {
     fi;
 
     /usr/bin/xrdb -merge "$HOME/".Xresources;
-    /usr/bin/xhost +si:localuser:"#$(/usr/bin/id -u)";
+    # /usr/bin/xhost +si:localuser:"#$(/usr/bin/id -u)";
+	/usr/bin/xhost +local:;
 
     case $X_XCLIENT in
         (bspwm)
