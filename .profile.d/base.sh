@@ -75,6 +75,7 @@ ProfileRcBaseAlias () {
     alias 'ff=find-file';
     alias 'filetest=tcsh--filetest';
     alias 'fs=find-string';
+    alias 'gmail=mutt--gmail';
     alias 'hotmail=mutt--hotmail';
     alias 'posteo1=mutt--posteo1';
     alias 'posteo=mutt--posteo';
