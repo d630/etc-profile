@@ -80,6 +80,11 @@ ProfileRcExtInfo () {
     INFODIR=$XDG_DATA_HOME/info:/usr/local/share/info:/usr/share/info;
 };
 
+ProfileRcExtJava () {
+	export _JAVA_OPTIONS;
+	_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+};
+
 ProfileRcExtLess () {
 	local -;
 	set -a;
@@ -156,11 +161,13 @@ ProfileRcExtQt () {
 	export \
 		QT_ACCESSIBILITY \
 		QT_AUTO_SCREEN_SCALE_FACTOR \
-		QT_LINUX_ACCESSIBILITY_ALWAYS_ON;
+		QT_LINUX_ACCESSIBILITY_ALWAYS_ON \
+		QT_STYLE_OVERRIDE;
 
-    QT_ACCESSIBILITY=1;
-    QT_AUTO_SCREEN_SCALE_FACTOR=1;
-    QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1;
+	QT_ACCESSIBILITY=1;
+	QT_AUTO_SCREEN_SCALE_FACTOR=1;
+	QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1;
+	QT_STYLE_OVERRIDE=gtk2;
 };
 
 ProfileRcExtReadline () {

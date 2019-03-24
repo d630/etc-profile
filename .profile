@@ -51,6 +51,7 @@ ENV=$HOME/.profile.d/profilerc;
 \ProfileRcExtGo;
 \ProfileRcExtHaskellCabal;
 \ProfileRcExtInfo;
+\ProfileRcExtJava;
 \ProfileRcExtLess;
 \ProfileRcExtMan;
 \ProfileRcExtNet;
