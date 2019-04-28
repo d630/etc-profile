@@ -138,10 +138,13 @@ esac;
 
 ProfileRcBaseLocale () {
 	export \
+		LANG \
 		LC_COLLATE \
-		LC_CTYPE;
+		LC_CTYPE \
+		LC_TIME;
 
-    #LANG=
+	LANG=en_US.UTF-8;
+
     #              Used  to  determine the locale category for any category
     #              not specifically selected with a variable starting  with
     #              LC_.
@@ -164,6 +167,7 @@ ProfileRcBaseLocale () {
     #LC_NUMERIC=
     #              This  variable  determines  the locale category used for
     #              number formatting.
+	LC_TIME=C;
 };
 
 ProfileRcBaseMail () {
