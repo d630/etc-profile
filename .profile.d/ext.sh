@@ -121,13 +121,14 @@ ProfileRcExtNode () {
 };
 
 ProfileRcExtNodeNpm () {
-    PATH=$XDG_OPT_HOME/npm/bin:$PATH;
+	PATH=$XDG_OPT_HOME/npm/bin:$PATH;
 
-	export NPM_CONFIG_USERCONFIG;
+	export \
+		NPM_CONFIG_USERCONFIG \
+		MANPATH;
+
 	NPM_CONFIG_USERCONFIG=$HOME/.npmrc;
-
-	export MANPATH;
-	MANPATH=$XDG_OPT_HOME/npm/share/man:$MANPATH;
+	MANPATH=$XDG_OPT_HOME/npm/share/man:${MANPATH:?};
 };
 
 ProfileRcExtPerl () {
