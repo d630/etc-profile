@@ -143,19 +143,17 @@ ProfileRcExtPerlCpanm () {
 };
 
 ProfileRcExtPhpComposer () {
-	PATH=$XDG_OPT_HOME/composer/vendor/bin:$PATH;
-
 	export COMPOSER_HOME;
 	COMPOSER_HOME=$XDG_OPT_HOME/composer;
+
+	PATH=$COMPOSER_HOME/composer/vendor/bin:$PATH;
 };
 
 ProfileRcExtPython () {
-	export \
-		PYTHONBASE \
-		PYTHONPATH;
+	export PYTHONUSERBASE;
+	PYTHONUSERBASE=$XDG_OPT_HOME/python;
 
-    PYTHONBASE=$XDG_OPT_HOME/python;
-    PYTHONPATH=$PYTHONBASE/lib/python2.7/site-packages;
+	PATH=$PYTHONUSERBASE/bin:$PATH;
 };
 
 ProfileRcExtQt () {

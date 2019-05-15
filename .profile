@@ -88,6 +88,7 @@ $HOME/sbin
 $HOME/bin
 $GOPATH/bin
 $PERL_LOCAL_LIB_ROOT/bin
+$PYTHONUSERBASE/bin
 $XDG_OPT_HOME/cabal/bin
 $XDG_OPT_HOME/composer/vendor/bin
 $XDG_OPT_HOME/npm/bin
