@@ -146,7 +146,7 @@ ProfileRcExtPhpComposer () {
 	export COMPOSER_HOME;
 	COMPOSER_HOME=$XDG_OPT_HOME/composer;
 
-	PATH=$COMPOSER_HOME/composer/vendor/bin:$PATH;
+	PATH=$COMPOSER_HOME/vendor/bin:$PATH;
 };
 
 ProfileRcExtPython () {
