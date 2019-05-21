@@ -108,8 +108,8 @@ ProfileRcExtMan () {
 		MANPATH \
 		MANWIDTH;
 
-    MANPATH=$XDG_DATA_HOME/man:/usr/local/share/man:/usr/share/man;
-    MANWIDTH=80;
+	MANPATH=$XDG_DATA_HOME/man:/usr/local/share/man:/usr/share/man;
+	MANWIDTH=80;
 };
 
 ProfileRcExtNet () {
