@@ -211,8 +211,8 @@ ProfileRcExtUrldiff () {
 		URLDIFF_DATA \
 		URLDIFF_MAILTO;
 
-    URLDIFF_DATA=$XDG_VAR_HOME/lib/urldiff;
-    URLDIFF_MAILTO=urldiff@urldiff;
+	URLDIFF_DATA=$XDG_VAR_HOME/lib/urldiff;
+	URLDIFF_MAILTO=urldiff@urldiff;
 };
 
 ProfileRcExtX () {
