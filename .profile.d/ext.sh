@@ -71,10 +71,7 @@ ProfileRcExtGo () {
 };
 
 ProfileRcExtHaskellCabal () {
-    PATH=$HOME/.cabal/bin:$PATH;
-
-    export MANPATH;
-    MANPATH=$XDG_OPT_HOME/share/man:$MANPATH;
+	PATH=$XDG_OPT_HOME/cabal/bin:$PATH;
 };
 
 ProfileRcExtInfo () {
@@ -174,6 +171,13 @@ ProfileRcExtQt () {
 ProfileRcExtReadline () {
     export INPUTRC;
     INPUTRC=$XDG_CONFIG_HOME/inputrc;
+};
+
+ProfileRcExtRustCargo () {
+	PATH=$XDG_OPT_HOME/cargo/bin:$PATH;
+
+	export CARGO_HOME
+	CARGO_HOME=$XDG_OPT_HOME/cargo
 };
 
 ProfileRcExtSxhkd () {
