@@ -61,6 +61,7 @@ ENV=$HOME/.profile.d/profilerc;
 \ProfileRcExtPerlCpanm;
 \ProfileRcExtPhpComposer;
 \ProfileRcExtPython;
+\ProfileRcExtPyenv;
 \ProfileRcExtReadline;
 \ProfileRcExtRustCargo;
 \ProfileRcExtTaskum;
@@ -90,6 +91,7 @@ $HOME/bin
 $GOPATH/bin
 $PERL_LOCAL_LIB_ROOT/bin
 $PYTHONUSERBASE/bin
+$PYENV_ROOT/bin
 $XDG_OPT_HOME/cabal/bin
 $XDG_OPT_HOME/cargo/bin
 $XDG_OPT_HOME/composer/vendor/bin

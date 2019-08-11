@@ -155,6 +155,13 @@ ProfileRcExtPython () {
 	PATH=$PYTHONUSERBASE/bin:$PATH;
 };
 
+ProfileRcExtPyenv () {
+	export PYENV_ROOT
+	PYENV_ROOT=$PYTHONUSERBASE/lib/pyenv;
+
+	PATH=$PYENV_ROOT/bin:$PATH;
+};
+
 ProfileRcExtQt () {
 	export \
 		QT_ACCESSIBILITY \
