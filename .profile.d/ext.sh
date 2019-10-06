@@ -159,7 +159,7 @@ ProfileRcExtPyenv () {
 	export PYENV_ROOT
 	PYENV_ROOT=$PYTHONUSERBASE/lib/pyenv;
 
-	PATH=$PYENV_ROOT/bin:$PATH;
+	# PATH=$PYENV_ROOT/bin:$PATH;
 };
 
 ProfileRcExtQt () {

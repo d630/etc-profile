@@ -254,7 +254,7 @@ ProfileRcBaseUser () {
 	IMAGE_VIEWER_OPTS=-o\|ext_image_viewer=off\|-o\|imgdisplay=w3mimgdisplay;
 	MAIL_VIEWER=/usr/bin/mutt;
 	MAIL_VIEWER_OPTS=-n;
-	PAGER=/bin/less;
+	PAGER=/usr/bin/less;
 	PDF_VIEWER=/usr/bin/mupdf;
 	PDF_VIEWER_OPTS=;
 	READLINE_EDITOR=/usr/bin/rlwrap;

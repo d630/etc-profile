@@ -4,23 +4,25 @@
 # Referenced by ENV in dash, ksh, bash --posix, mksh etc.
 
 test "${-##*i*}" = "$-" || {
-    rc=;
-    if
-        test \
-			"$(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")")" = /bin/dash;
-    then
-        rc=$HOME/.dashrc;
-    else
-        case $KSH_VERSION in
-            (*MIRBSD\ KSH*)
-                rc=$HOME/.mkshrc;;
-            (*AJM*)
-                rc=$HOME/.kshrc;;
-        esac;
-    fi;
-    test -e "$rc" &&
-        . "$rc";
-    unset -v rc;
+	rc=;
+
+	case $(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")") in
+		(/bin/dash)
+			rc=$HOME/.dashrc;;
+		(*)
+			case $KSH_VERSION in
+				(*MIRBSD\ KSH*)
+					rc=$HOME/.mkshrc;;
+				(*AJM*)
+					rc=$HOME/.kshrc;;
+				(*)
+					rc=$HOME/.dashrc;;
+			esac;;
+	esac
+
+	test -e "$rc" &&
+		. "$rc";
+	unset -v rc;
 };
 
 # vim: set ft=sh :
