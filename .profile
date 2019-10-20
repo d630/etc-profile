@@ -30,9 +30,9 @@ umask 027;
 export ENV;
 ENV=$HOME/.profile.d/profilerc;
 {
-    ulimit -n "$(($(ulimit -n) * 8))";
-    ulimit -s "$(($(ulimit -s) * 8))";
-    ulimit -c 0;
+	ulimit -n "$(($(ulimit -n) * 8))";
+	ulimit -s "$(($(ulimit -s) * 8))";
+	ulimit -c 0;
 } 2>/dev/null;
 
 . "$HOME/".profile.d/base.sh;
@@ -44,7 +44,7 @@ ENV=$HOME/.profile.d/profilerc;
 \ProfileRcBaseUser;
 \ProfileRcBaseTerminfo;
 
-. "$HOME/".profile.d/ext.sh;
+. "$HOME/.profile.d/ext.sh";
 \ProfileRcExtAtSpi;
 \ProfileRcExtBc;
 \ProfileRcExtFreetype;
@@ -74,9 +74,9 @@ ENV=$HOME/.profile.d/profilerc;
 export PATH;
 PATH=;
 while
-    read -r p;
+	read -r p;
 do
-    PATH=$p:$PATH;
+	PATH=$p:$PATH;
 done <<P
 /sbin
 /bin
@@ -102,13 +102,13 @@ PATH=${PATH%:};
 unset -v p;
 
 test "${-##*i*}" = "$-" || {
-    . "$HOME/".profile.d/run.sh;
-    \ProfileRcRunGpg;
-    \ProfileRcRunKeychain;
-    \ProfileRcRunDaylight;
-    \ProfileRcBaseConsole;
-    unalias -a;
-    \ProfileRcBaseAlias;
+	. "$HOME/.profile.d/run.sh";
+	\ProfileRcRunGpg;
+	\ProfileRcRunKeychain;
+	\ProfileRcRunDaylight;
+	\ProfileRcBaseConsole;
+	unalias -a;
+	\ProfileRcBaseAlias;
 };
 
 \ProfileRcExtDbus;

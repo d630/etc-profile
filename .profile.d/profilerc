@@ -1,28 +1,37 @@
 #!/bin/sh
 #
 # profilerc
-# Referenced by ENV in dash, ksh, bash --posix, mksh etc.
+# Referenced by ENV in dash, ksh, bash --posix, yash -o posix, mksh etc.
 
 test "${-##*i*}" = "$-" || {
 	rc=;
+	cmd=$(/usr/bin/env /usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")");
 
-	case $(/usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")") in
-		(/bin/dash)
-			rc=$HOME/.dashrc;;
-		(*)
+	case $cmd in
+		(/bin/mksh)
 			case $KSH_VERSION in
 				(*MIRBSD\ KSH*)
 					rc=$HOME/.mkshrc;;
-				(*AJM*)
-					rc=$HOME/.kshrc;;
-				(*)
-					rc=$HOME/.dashrc;;
 			esac;;
-	esac
+		(/usr/bin/ksh)
+			case $KSH_VERSION in
+				(*AJM*|Version\ A*)
+					rc=$HOME/.kshrc;;
+			esac;;
+		(/bin/bash|/bin/dash|/usr/bin/yash)
+			rc=$HOME/.dashrc;;
+	esac;
 
-	test -e "$rc" &&
+	if
+		test -n "$rc" -a -e "$rc";
+	then
 		. "$rc";
-	unset -v rc;
+		export POSIXLY_CORRECT;
+		POSIXLY_CORRECT=y;
+		SHELL=$cmd;
+	fi;
+
+	unset -v rc cmd;
 };
 
 # vim: set ft=sh :
