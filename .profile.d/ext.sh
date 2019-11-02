@@ -64,19 +64,17 @@ ProfileRcExtGtk () {
 };
 
 ProfileRcExtGo () {
+	GOPATH=${XDG_OPT_HOME:?}/go;
 	export GOPATH;
-	GOPATH=$XDG_OPT_HOME/go;
-
-	PATH=$GOPATH/bin:$PATH;
 };
 
 ProfileRcExtHaskellCabal () {
-	PATH=$XDG_OPT_HOME/cabal/bin:$PATH;
+	:;
 };
 
 ProfileRcExtInfo () {
+	INFODIR=${XDG_DATA_HOME:?}/info:/usr/local/share/info:/usr/share/info;
 	export INFODIR;
-	INFODIR=$XDG_DATA_HOME/info:/usr/local/share/info:/usr/share/info;
 };
 
 ProfileRcExtJava () {
@@ -93,20 +91,20 @@ ProfileRcExtLess () {
 	LESS=-R\ -cfMS\ --shift\ 5;
 	LESSCOLOR=1;
 	LESSHISTFILE=/dev/null;
-	LESSOPEN='|"$XDG_BIN_HOME/lesspipew" %s';
+	LESSOPEN='|"${XDG_BIN_HOME:?}/lesspipew" %s';
 };
 
 ProfileRcExtLs () {
-	eval "$(/usr/bin/dircolors -b "$XDG_DATA_HOME/dircolors/${1:?}")";
+	eval "$(/usr/bin/dircolors -b "${XDG_DATA_HOME:?}/dircolors/${1:?}")";
 };
 
 ProfileRcExtMan () {
+	MANPATH=${XDG_DATA_HOME:?}/man:/usr/local/share/man:/usr/share/man;
+	MANWIDTH=80;
+
 	export \
 		MANPATH \
 		MANWIDTH;
-
-	MANPATH=$XDG_DATA_HOME/man:/usr/local/share/man:/usr/share/man;
-	MANWIDTH=80;
 };
 
 ProfileRcExtNet () {
@@ -120,46 +118,39 @@ ProfileRcExtNode () {
 };
 
 ProfileRcExtNodeNpm () {
-	PATH=$XDG_OPT_HOME/npm/bin:$PATH;
+	NPM_CONFIG_USERCONFIG=${HOME:-/home/$(/usr/bin/id -un)}/.npmrc;
+	MANPATH=${XDG_OPT_HOME:?}/npm/share/man${MANPATH:+:$MANPATH};
 
 	export \
 		NPM_CONFIG_USERCONFIG \
 		MANPATH;
-
-	NPM_CONFIG_USERCONFIG=$HOME/.npmrc;
-	MANPATH=$XDG_OPT_HOME/npm/share/man:${MANPATH:?};
 };
 
 ProfileRcExtPerl () {
-	eval "$(/usr/bin/perl -I"$XDG_OPT_HOME/perl5/lib/perl5" -M"local::lib=$XDG_OPT_HOME/perl5")";
+	eval "$(/usr/bin/perl -I"${XDG_OPT_HOME:?}/perl5/lib/perl5" -M"local::lib=$XDG_OPT_HOME/perl5")";
+
+	MANPATH=${HOME:-/home/$(/usr/bin/id -un)}/perl5/man${MANPATH:+:$MANPATH};
 	export MANPATH;
-	MANPATH=$HOME/perl5/man:$MANPATH;
 };
 
 ProfileRcExtPerlCpanm () {
+	PERL_CPANM_HOME=${XDG_OPT_HOME:?}/cpanm;
 	export PERL_CPANM_HOME;
-	PERL_CPANM_HOME=$XDG_OPT_HOME/cpanm;
 };
 
 ProfileRcExtPhpComposer () {
+	COMPOSER_HOME=${XDG_OPT_HOME:?}/composer;
 	export COMPOSER_HOME;
-	COMPOSER_HOME=$XDG_OPT_HOME/composer;
-
-	PATH=$COMPOSER_HOME/vendor/bin:$PATH;
 };
 
 ProfileRcExtPython () {
+	PYTHONUSERBASE=${XDG_OPT_HOME:?}/python;
 	export PYTHONUSERBASE;
-	PYTHONUSERBASE=$XDG_OPT_HOME/python;
-
-	PATH=$PYTHONUSERBASE/bin:$PATH;
 };
 
 ProfileRcExtPyenv () {
+	PYENV_ROOT=${PYTHONUSERBASE:?}/lib/pyenv;
 	export PYENV_ROOT;
-	PYENV_ROOT=$PYTHONUSERBASE/lib/pyenv;
-
-	# PATH=$PYENV_ROOT/bin:$PATH;
 };
 
 ProfileRcExtQt () {
@@ -176,15 +167,13 @@ ProfileRcExtQt () {
 };
 
 ProfileRcExtReadline () {
+	INPUTRC=${XDG_CONFIG_HOME:?}/inputrc;
 	export INPUTRC;
-	INPUTRC=$XDG_CONFIG_HOME/inputrc;
 };
 
 ProfileRcExtRustCargo () {
-	PATH=$XDG_OPT_HOME/cargo/bin:$PATH;
-
+	CARGO_HOME=${XDG_OPT_HOME:?}/cargo;
 	export CARGO_HOME;
-	CARGO_HOME=$XDG_OPT_HOME/cargo;
 };
 
 ProfileRcExtSxhkd () {
@@ -193,51 +182,46 @@ ProfileRcExtSxhkd () {
 };
 
 ProfileRcExtTaskum () {
+	TASKUM_DATA=${XDG_VAR_HOME:?}/lib/taskum;
 	export TASKUM_DATA;
-	TASKUM_DATA=$XDG_VAR_HOME/lib/taskum;
 };
 
-# ProfileRcExtTaskwarrior () {
-#	  export TASKRC=./.taskrc;
-#	  export TASKHOME=$XDG_VAR_HOME/lib/taskwarrior/taskhome;
-# };
-
 ProfileRcExtTerminfo () {
+	TERMINFO_DIRS=:${XDG_CONFIG_HOME:?}/terminfo:/usr/local/share/terminfo;
 	export TERMINFO_DIRS;
-	TERMINFO_DIRS=:$XDG_CONFIG_HOME/terminfo:/usr/local/share/terminfo;
 };
 
 ProfileRcExtTex () {
+	TEXINPUTS=${XDG_DATA_HOME:?}/texmf/tex///:;
 	export TEXINPUTS;
-	TEXINPUTS=$XDG_DATA_HOME/texmf/tex///:;
 };
 
 ProfileRcExtUrimark () {
+	URIMARK_DATA_DIR=${XDG_VAR_HOME:?}/lib/urimark/data;
 	export URIMARK_DATA_DIR;
-	URIMARK_DATA_DIR=$XDG_VAR_HOME/lib/urimark/data;
 };
 
 ProfileRcExtUrldiff () {
+	URLDIFF_DATA=${XDG_VAR_HOME:?}/lib/urldiff;
+	URLDIFF_MAILTO=urldiff@urldiff;
+
 	export \
 		URLDIFF_DATA \
 		URLDIFF_MAILTO;
-
-	URLDIFF_DATA=$XDG_VAR_HOME/lib/urldiff;
-	URLDIFF_MAILTO=urldiff@urldiff;
 };
 
 ProfileRcExtX () {
 	local -;
 	set -a;
 
-	ICEAUTHORITY=$XDG_VAR_HOME/spool/ICEauthority;
-	XAPPLRESDIR=$XDG_DATA_HOME/X11;
+	ICEAUTHORITY=${XDG_VAR_HOME:?}/spool/ICEauthority;
+	XAPPLRESDIR=${XDG_DATA_HOME:?}/X11;
 	XAUTHORITY=$XDG_VAR_HOME/spool/Xauthority;
 	XERRFILE=${TMPDIR:-/tmp}/xsession-errors;
-	XINITRC=$HOME/.xinitrc;
+	XINITRC=${HOME:-/home/$(/usr/bin/id -un)}/.xinitrc;
 	X_XCLIENT=bspwm;
 
-	XUSERFILESEARCHPATH=$XAPPLRESDIR/%L/%N%C:$XAPPLRESDIR/%l/%N%C:$XAPPLRESDIR/%N%C:$XAPPLRESDIR/%L/%N:$XAPPLRESDIR/%l/%N:$XAPPLRESDIR/%N;
+	XUSERFILESEARCHPATH=${XAPPLRESDIR:?}/%L/%N%C:$XAPPLRESDIR/%l/%N%C:$XAPPLRESDIR/%N%C:$XAPPLRESDIR/%L/%N:$XAPPLRESDIR/%l/%N:$XAPPLRESDIR/%N;
 };
 
 # vim: set ft=sh :

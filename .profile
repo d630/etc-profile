@@ -35,7 +35,7 @@ ENV=$HOME/.profile.d/profilerc;
 	ulimit -c 0;
 } 2>/dev/null;
 
-. "$HOME/".profile.d/base.sh;
+. "$HOME/.profile.d/base.sh";
 \ProfileRcBaseXdg;
 \ProfileRcBaseXdgExt;
 \ProfileRcBaseLocale;
@@ -78,23 +78,23 @@ while
 do
 	PATH=$p:$PATH;
 done <<P
-/sbin
 /bin
+/sbin
 /usr/games
-/usr/sbin
 /usr/bin
+/usr/sbin
 /usr/local/games
-/usr/local/sbin
 /usr/local/bin
-$HOME/sbin
+/usr/local/sbin
 $HOME/bin
+$HOME/sbin
+$CARGO_HOME/bin
+$COMPOSER_HOME/vendor/bin
 $GOPATH/bin
 $PERL_LOCAL_LIB_ROOT/bin
 $PYTHONUSERBASE/bin
 $PYENV_ROOT/bin
 $XDG_OPT_HOME/cabal/bin
-$XDG_OPT_HOME/cargo/bin
-$XDG_OPT_HOME/composer/vendor/bin
 $XDG_OPT_HOME/npm/bin
 P
 

@@ -3,17 +3,15 @@
 # ProfileRcBase.
 
 ProfileRcBaseAlias () {
+	alias 'sudo=/usr/bin/sudo -H --prompt="%u(%U): " ';
+
 	local p;
 	for p in /sbin/?* /usr/sbin/?*;
 	do
 		alias "${p##*/}=sudo $p ";
 	done;
 
-	alias 'command=command ';
-	alias 'ls=/bin/ls -h --color=auto';
-	alias 'mkdir=/bin/mkdir -v';
 	alias 'o=open ';
-	alias 'sudo=/usr/bin/sudo -H --prompt="%u(%U): " ';
 
 	alias 'about=o -A about -f';
 	alias 'c=o -A compose -f';
@@ -28,23 +26,46 @@ ProfileRcBaseAlias () {
 	alias 've=o -A vedit -f';
 	alias 'vv=o -A vview -f';
 
-	alias 'L=/bin/less -L';
 	alias 'chmod=/bin/chmod -v';
 	alias 'chown=/bin/chown -v';
-	alias 'console-color=\ProfileRcBaseConsole';
 	alias 'cp=/bin/cp -v';
-	alias 'd=/usr/local/bin/dacti';
 	alias 'dash=/usr/bin/rlwrap -ic /bin/dash';
+	alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
 	alias 'dc=/usr/bin/rlwrap /usr/bin/dc';
 	alias 'df=/bin/df -h';
 	alias 'diff=/usr/bin/colordiff';
 	alias 'dir=/bin/dir -h --color=never';
 	alias 'du=/usr/bin/du -h';
-	alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
 	alias 'egrep=/bin/grep -E --color=auto';
 	alias 'fgrep=/bin/grep -F --color=auto';
 	alias 'gcc=/usr/bin/colorgcc';
 	alias 'grep=/bin/grep --color=auto';
+	alias 'ln=/bin/ln -v';
+	alias 'ls=/bin/ls -h --color=auto';
+	alias 'make=/usr/bin/colormake';
+	alias 'mkdir=/bin/mkdir -v';
+	alias 'mv=/bin/mv -v';
+	alias 'nawk=/usr/bin/original-awk';
+	alias 'nohup=/usr/bin/nohup ';
+	alias 'rgrep=/bin/grep -r --color=auto';
+	alias 'rm=/bin/rm -v';
+	alias 'rsync=/usr/bin/rsync -v';
+	alias 'tail=/usr/bin/colortail';
+	alias 'vdir=/bin/vdir -h --color=never';
+	alias 'vf=/usr/bin/vifm';
+
+	alias ':q=exit';
+	alias ':x=exit';
+	alias 'XX=. startx.sh';
+	alias 'chdir=cd';
+	alias 'command=command ';
+	alias 'console-color=\ProfileRcBaseConsole';
+	alias 'd630=mutt--d630';
+	alias 'dz=daemonize ';
+	alias 'filetest=tcsh--filetest';
+	alias 'forever=while :;';
+	alias 'gmail=mutt--gmail';
+	alias 'hotmail=mutt--hotmail';
 	alias 'l1=ls -1';
 	alias 'l=ls';
 	alias 'la1=ls -1a';
@@ -52,55 +73,20 @@ ProfileRcBaseAlias () {
 	alias 'lal=ls -al';
 	alias 'll=ls -l';
 	alias 'lla=ls -al';
-	alias 'ln=/bin/ln -v';
-	alias 'm=mkdir -p';
-	alias 'make=/usr/bin/colormake';
-	alias 'mv=/bin/mv -v';
-	alias 'nawk=/usr/bin/original-awk';
-	alias 'nohup=/usr/bin/nohup ';
-	alias 'rgrep=/bin/grep -r --color=auto';
-	alias 'rm=/bin/rm -v';
-	alias 'rsync=/usr/bin/rsync -v';
-	alias 'sac=sudo /usr/bin/apt-cache';
-	alias 'sag=sudo /usr/bin/apt-get';
-	alias 'tail=/usr/bin/colortail';
-	alias 'vdir=/bin/vdir -h --color=never';
-	alias 'vf=/usr/bin/vifm';
-
-	alias 'XX=. startx.sh';
-	alias 'ap=audio-player';
-	alias 'd630=mutt--d630';
-	alias 'dz=daemonize ';
-	alias 'fb=file-browser';
-	alias 'ff=find-file';
-	alias 'filetest=tcsh--filetest';
-	alias 'fs=find-string';
-	alias 'gmail=mutt--gmail';
-	alias 'hotmail=mutt--hotmail';
-	alias 'posteo1=mutt--posteo1';
-	alias 'posteo=mutt--posteo';
-	alias 's=setsidw ';
-	alias 'spool=mutt--spool';
-	alias 't=x-terminal ';
-	alias 'wl=wless';
-	alias 'wv=wvim';
-	alias 'xap=x-audio-player';
-	alias 'xiv=x-image-viewer';
-	alias 'xpv=x-pdf-viewer';
-	alias 'xvp=x-video-player';
-	alias 'zeit=show-zeit';
-
-	alias ':q=exit';
-	alias ':x=exit';
-	alias 'chdir=cd';
 	alias 'login=exec /bin/login';
 	alias 'newgrp=exec /usr/bin/newgrp';
 	alias 'not=! ';
-	alias 'p=pwd';
+	alias 'posteo1=mutt--posteo1';
+	alias 'posteo=mutt--posteo';
 	alias 'redirect=exec ';
+	alias 'sac=sudo /usr/bin/apt-cache';
+	alias 'sag=sudo /usr/bin/apt-get';
+	alias 'spool=mutt--spool';
 	alias 'stop=kill -s STOP ';
 	alias 'unsetenv=unset';
-	alias 'forever=while :;';
+	alias 'wl=wless';
+	alias 'wv=wvim';
+	alias 'zeit=show-zeit';
 };
 
 ProfileRcBaseConsole ()
@@ -111,10 +97,10 @@ case $TERM in
 			--bfreq 0 --blength 0 1>/dev/null 2>&1;
 		/usr/bin/sudo /sbin/kbdrate -d 250 -r 30.0 1>/dev/null 2>&1;
 		/usr/bin/sudo /usr/bin/loadkeys \
-			"$XDG_CONFIG_HOME/xmodmap/us-altgr-german.rc.map" 1>/dev/null 2>&1;
+			"${XDG_CONFIG_HOME:?}/xmodmap/us-altgr-german.rc.map" 1>/dev/null 2>&1;
 		/usr/bin/mesg y 2>/dev/null;
 		if
-			test -e "$XDG_RUNTIME_DIR/DAYLIGHT";
+			test -e "${XDG_RUNTIME_DIR:?}/DAYLIGHT";
 		then
 			printf '\e]P0eee8d5'; # S_base02
 			printf '\e]P7073642'; # S_base2
@@ -159,7 +145,7 @@ ProfileRcBaseMail () {
 		MAIL \
 		MAILCHECK;
 
-	MAIL=/var/mail/$USER;
+	MAIL=/var/mail/$(/usr/bin/id -un);
 	MAILCHECK=0;
 	#MAILPATH=
 };
@@ -170,34 +156,45 @@ ProfileRcBaseTerminfo () {
 
 	{
 		TI_AM=$(/usr/bin/tput am);
+
 		TI_BLACK_F=$(/usr/bin/tput setaf 0);
 		TI_BLACK_F_BOLD=${TI_BOLD}${TI_BLACK_F};
+
 		TI_BLUE_F=$(/usr/bin/tput setaf 4 || /usr/bin/tput AF 4);
 		TI_BLUE_F_BOLD=${TI_BOLD}${TI_BLUE_F};
+
 		TI_BOLD=$(/usr/bin/tput bold || /usr/bin/tput md);
 		TI_CIVIS=$(/usr/bin/tput civis || /usr/bin/tput vi);
 		TI_CLEAR=$(/usr/bin/tput clear);
 		TI_CNORM=$(/usr/bin/tput cnorm || /usr/bin/tput ve);
+
 		TI_CYAN_F=$(/usr/bin/tput setaf 6);
 		TI_CYAN_F_BOLD=$TI_BOLD$TI_CYAN_F;
+
 		TI_ED=$(/usr/bin/tput ed);
 		TI_EL=$(/usr/bin/tput el || /usr/bin/tput ce);
+
 		TI_GREEN_B=$(/usr/bin/tput setab 2);
 		TI_GREEN_F=$(/usr/bin/tput setaf 2 || /usr/bin/tput AF 2);
 		TI_GREEN_F_BOLD=$TI_BOLD$TI_GREEN_F;
 		TI_HOME=$(/usr/bin/tput home);
+
 		TI_PURPLE_F=$(/usr/bin/tput setaf 5);
 		TI_PURPLE_F_BOLD=$TI_BOLD$TI_PURPLE_F;
+
 		TI_RED_B=$(/usr/bin/tput setab 1);
 		TI_RED_F=$(/usr/bin/tput setaf 1);
 		TI_RED_F_BOLD=$TI_BOLD$TI_RED_F;
+
 		TI_RMAM=$(/usr/bin/tput rmam);
 		TI_RMCUP=$(/usr/bin/tput rmcup || /usr/bin/tput te);
 		TI_SGR0=$(/usr/bin/tput sgr0 || /usr/bin/tput me);
 		TI_SMCUP=$(/usr/bin/tput smcup || /usr/bin/tput ti);
+
 		TI_WHITE_B=$(/usr/bin/tput setab 7);
 		TI_WHITE_F=$(/usr/bin/tput setaf 7 || /usr/bin/tput AF 7);
 		TI_WHITE_F_BOLD=$TI_BOLD$TI_WHITE_F;
+
 		TI_YELLOW_B=$(/usr/bin/tput setab 3);
 		TI_YELLOW_F=$(/usr/bin/tput setaf 3);
 		TI_YELLOW_F_BOLD=$TI_BOLD$TI_YELLOW_F;
@@ -210,6 +207,8 @@ ProfileRcBaseTz () {
 };
 
 ProfileRcBaseUser () {
+	: "${XDG_BIN_HOME:?}";
+
 	local -;
 	set -a;
 
@@ -261,6 +260,8 @@ ProfileRcBaseUser () {
 };
 
 ProfileRcBaseXdg () {
+	HOME=${HOME:-/home/$(/usr/bin/id -un)};
+
 	local -;
 	set -a;
 
@@ -279,12 +280,12 @@ ProfileRcBaseXdg () {
 	XDG_SRC_HOME=$HOME/src;
 	XDG_TMP_HOME=/home/files/tmp;
 
-	test -f "$XDG_CONFIG_HOME/user-dirs.dirs" &&
+	test -r "$XDG_CONFIG_HOME/user-dirs.dirs" &&
 		. "$XDG_CONFIG_HOME/user-dirs.dirs";
 };
 
 ProfileRcBaseXdgExt () {
-	test -f "$XDG_CONFIG_HOME/vars.priv" &&
+	test -r "$XDG_CONFIG_HOME/vars.priv" &&
 		. "$XDG_CONFIG_HOME/vars.priv";
 };
 

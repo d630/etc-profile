@@ -6,6 +6,7 @@
 test "${-##*i*}" = "$-" || {
 	rc=;
 	cmd=$(/usr/bin/env /usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")");
+	HOME=${HOME:-/home/$(/usr/bin/id -un)};
 
 	case $cmd in
 		(/bin/mksh)
@@ -22,14 +23,12 @@ test "${-##*i*}" = "$-" || {
 			rc=$HOME/.dashrc;;
 	esac;
 
-	if
-		test -n "$rc" -a -e "$rc";
-	then
+	test -n "$rc" -a -r "$rc" && {
 		. "$rc";
 		export POSIXLY_CORRECT;
 		POSIXLY_CORRECT=y;
 		SHELL=$cmd;
-	fi;
+	};
 
 	unset -v rc cmd;
 };
