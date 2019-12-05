@@ -12,6 +12,11 @@ ProfileRcExtBc () {
 	BC_LINE_LENGTH=0;
 };
 
+ProfileRcExtCabal () {
+	CABAL_CONFIG=${XDG_OPT_HOME:?}/cabal/config;
+	export CABAL_CONFIG;
+};
+
 ProfileRcExtDbus () {
 	: "${XDG_RUNTIME_DIR:=/run/user/$(/usr/bin/id -u)}";
 	: "${DBUS_SESSION_BUS_ADDRESS:=unix:path=$XDG_RUNTIME_DIR/bus}";
@@ -66,10 +71,6 @@ ProfileRcExtGtk () {
 ProfileRcExtGo () {
 	GOPATH=${XDG_OPT_HOME:?}/go;
 	export GOPATH;
-};
-
-ProfileRcExtHaskellCabal () {
-	:;
 };
 
 ProfileRcExtInfo () {
