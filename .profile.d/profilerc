@@ -20,13 +20,13 @@ test "${-##*i*}" = "$-" || {
 					rc=$HOME/.kshrc;;
 			esac;;
 		(/bin/bash|/bin/dash|/usr/bin/yash)
+			export POSIXLY_CORRECT;
+			POSIXLY_CORRECT=y;
 			rc=$HOME/.dashrc;;
 	esac;
 
-	test -n "$rc" -a -r "$rc" && {
+	test -r "$rc" && {
 		. "$rc";
-		export POSIXLY_CORRECT;
-		POSIXLY_CORRECT=y;
 		SHELL=$cmd;
 	};
 

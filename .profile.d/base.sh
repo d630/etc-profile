@@ -11,6 +11,8 @@ ProfileRcBaseAlias () {
 		alias "${p##*/}=sudo $p ";
 	done;
 
+	unalias 'mklost+found' 2>/dev/null;
+
 	alias 'o=open ';
 
 	alias 'about=o -A about -f';
