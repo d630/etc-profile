@@ -127,7 +127,7 @@ ProfileRcRunXCustoms () {
 };
 
 ProfileRcRunXDaemons () {
-	/usr/bin/touch "${XDG_RUNTIME_DIR:?}/.dunst_use_critical";
+	/usr/bin/touch "${XDG_RUNTIME_DIR:?}/.dunst_use_critical$DISPLAY";
 	"$XDG_BIN_HOME/dunst-restart";
 
 	/usr/bin/autocutsel -fork -selection PRIMARY -buttonup;
