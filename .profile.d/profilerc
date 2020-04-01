@@ -20,8 +20,8 @@ test "${-##*i*}" = "$-" || {
 					rc=$HOME/.kshrc;;
 			esac;;
 		(/bin/bash|/bin/dash|/usr/bin/yash)
-			export POSIXLY_CORRECT;
 			POSIXLY_CORRECT=y;
+			export POSIXLY_CORRECT;
 			rc=$HOME/.dashrc;;
 	esac;
 

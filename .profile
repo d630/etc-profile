@@ -86,6 +86,7 @@ done <<P
 /usr/local/games
 /usr/local/bin
 /usr/local/sbin
+/snap/bin
 $HOME/bin
 $HOME/sbin
 $CARGO_HOME/bin

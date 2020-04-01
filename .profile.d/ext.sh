@@ -3,13 +3,13 @@
 # ProfileRcExt.
 
 ProfileRcExtAtSpi () {
-	export NO_AT_BRIDGE;
 	NO_AT_BRIDGE=1;
+	export NO_AT_BRIDGE;
 };
 
 ProfileRcExtBc () {
-	export BC_LINE_LENGTH;
 	BC_LINE_LENGTH=0;
+	export BC_LINE_LENGTH;
 };
 
 ProfileRcExtCabal () {
@@ -39,8 +39,8 @@ ProfileRcExtDbus () {
 };
 
 ProfileRcExtFreetype () {
-	export FREETYPE_PROPERTIES;
 	FREETYPE_PROPERTIES=truetype:interpreter-version=35;
+	export FREETYPE_PROPERTIES;
 }
 
 ProfileRcExtGlib () {
@@ -57,8 +57,6 @@ ProfileRcExtGlib () {
 };
 
 ProfileRcExtGtk () {
-	export GDK_SCALE;
-
 	if
 		test "$X_DPI" -gt 96;
 	then
@@ -66,6 +64,8 @@ ProfileRcExtGtk () {
 	else
 		GDK_SCALE=1;
 	fi;
+
+	export GDK_SCALE;
 };
 
 ProfileRcExtGo () {
@@ -79,8 +79,8 @@ ProfileRcExtInfo () {
 };
 
 ProfileRcExtJava () {
-	export _JAVA_OPTIONS;
 	_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+	export _JAVA_OPTIONS;
 };
 
 ProfileRcExtLess () {
@@ -109,13 +109,13 @@ ProfileRcExtMan () {
 };
 
 ProfileRcExtNet () {
-	export DOTNET_CLI_TELEMETRY_OPTOUT;
 	DOTNET_CLI_TELEMETRY_OPTOUT=1;
+	export DOTNET_CLI_TELEMETRY_OPTOUT;
 };
 
 ProfileRcExtNode () {
-	export NODE_PATH;
 	NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript;
+	export NODE_PATH;
 };
 
 ProfileRcExtNodeNpm () {
@@ -155,11 +155,8 @@ ProfileRcExtPyenv () {
 };
 
 ProfileRcExtQt () {
-	export \
-		QT_ACCESSIBILITY \
-		QT_AUTO_SCREEN_SCALE_FACTOR \
-		QT_LINUX_ACCESSIBILITY_ALWAYS_ON \
-		QT_STYLE_OVERRIDE;
+	local -;
+	set -a;
 
 	QT_ACCESSIBILITY=1;
 	QT_AUTO_SCREEN_SCALE_FACTOR=1;
@@ -178,8 +175,8 @@ ProfileRcExtRustCargo () {
 };
 
 ProfileRcExtSxhkd () {
-	export SXHKD_SHELL;
 	SXHKD_SHELL=/bin/sh;
+	export SXHKD_SHELL;
 };
 
 ProfileRcExtTaskum () {

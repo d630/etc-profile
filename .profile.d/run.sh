@@ -11,12 +11,13 @@ ProfileRcRunEmacsd () {
 };
 
 ProfileRcRunGpg () {
+	GPG_TTY=$(/usr/bin/tty);
+	GPG_AGENT_INFO=;
+
 	export \
 		GPP_TTY \
 		GPG_AGENT_INFO;
 
-	GPG_TTY=$(/usr/bin/tty);
-	GPG_AGENT_INFO=;
 	/usr/bin/gpg-connect-agent updatestartuptty /bye;
 };
 
@@ -39,40 +40,36 @@ ProfileRcRunKeychainInteractiv () {
 			--agents ssh "${X_HOST1_SSH_KEY:?}" 1>/dev/null 2>&1;
 	)";
 
-	if
-		test -r "$HOME/.keychain/$HOSTNAME-sh";
-	then
-		. "$HOME/.keychain/$HOSTNAME-sh";
-	else
-		return 1;
-	fi;
+	test -r "$HOME/.keychain/$HOSTNAME-sh" ||
+		return "$?";
+	. "$HOME/.keychain/$HOSTNAME-sh";
 
 	test -r "$HOME/.keychain/$HOSTNAME-sh-gpg" &&
 		. "$HOME/.keychain/$HOSTNAME-sh-gpg";
 };
 
-ProfileRcRunLsSet ()
-if
-	test -e "${XDG_RUNTIME_DIR:?}/DAYLIGHT";
-then
-	\ProfileRcExtLs solarized/dircolors.ansi-light;
-else
+ProfileRcRunLsSet () {
 	if
-		test "${TERM##*linux*}" = "$TERM";
+		test -e "${XDG_RUNTIME_DIR:?}/DAYLIGHT";
 	then
-		\ProfileRcExtLs solarized/dircolors.256dark;
+		\ProfileRcExtLs solarized/dircolors.ansi-light;
 	else
-		\ProfileRcExtLs solarized/dircolors.ansi-dark;
+		if
+			test "${TERM##*linux*}" = "$TERM";
+		then
+			\ProfileRcExtLs solarized/dircolors.256dark;
+		else
+			\ProfileRcExtLs solarized/dircolors.ansi-dark;
+		fi;
 	fi;
-fi;
+};
 
 ProfileRcRunXCustoms () {
-	export X_DPI;
 	local dev;
 
 	if
 		/usr/bin/xrandr |
-		/bin/grep 'HDMI-1 disconnected';
+		/bin/grep -F 'HDMI-1 disconnected';
 	then
 		/usr/bin/xrandr \
 			--output eDP-1 --dpi 192 --auto \
@@ -88,22 +85,24 @@ ProfileRcRunXCustoms () {
 	fi;
 	"${XDG_BIN_HOME:?}/audio-device" "$dev";
 
+	export X_DPI;
+
 	/usr/bin/xrdb -merge "$HOME/.Xresources";
 	# /usr/bin/xhost +si:localuser:"#$(/usr/bin/id -u)";
 	/usr/bin/xhost +local:;
 
 	case $X_XCLIENT in
 		(bspwm)
-			export _JAVA_AWT_WM_NONREPARENTING;
-			_JAVA_AWT_WM_NONREPARENTING=1;;
+			_JAVA_AWT_WM_NONREPARENTING=1;
+			export _JAVA_AWT_WM_NONREPARENTING;;
 		(cwm)
-			export X_XCLIENT;
-			X_XCLIENT=openbsd-cwm;;
+			X_XCLIENT=openbsd-cwm;
+			export X_XCLIENT;;
 		(openbsd-cwm|spectrwm)
 			:;;
 		(*)
-			export X_XCLIENT;
-			X_XCLIENT=x-terminal-tabbed;;
+			X_XCLIENT=x-terminal-tabbed;
+			export X_XCLIENT;;
 	esac;
 
 	# /usr/bin/numlockx off;

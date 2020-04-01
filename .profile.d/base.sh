@@ -8,7 +8,7 @@ ProfileRcBaseAlias () {
 	local p;
 	for p in /sbin/?* /usr/sbin/?*;
 	do
-		alias "${p##*/}=sudo $p ";
+		alias "${p##*/}=sudo $p";
 	done;
 
 	unalias 'mklost+found' 2>/dev/null;
@@ -126,11 +126,8 @@ case $TERM in
 esac;
 
 ProfileRcBaseLocale () {
-	export \
-		LANG \
-		LC_COLLATE \
-		LC_CTYPE \
-		LC_TIME;
+	local -;
+	set -a;
 
 	LANG=en_US.UTF-8;
 
@@ -143,13 +140,13 @@ ProfileRcBaseLocale () {
 };
 
 ProfileRcBaseMail () {
-	export \
-		MAIL \
-		MAILCHECK;
-
 	MAIL=/var/mail/$(/usr/bin/id -un);
 	MAILCHECK=0;
 	#MAILPATH=
+
+	export \
+		MAIL \
+		MAILCHECK;
 };
 
 ProfileRcBaseTerminfo () {
@@ -204,8 +201,8 @@ ProfileRcBaseTerminfo () {
 };
 
 ProfileRcBaseTz () {
-	export TZ;
 	TZ=Europe/Berlin;
+	export TZ;
 };
 
 ProfileRcBaseUser () {
