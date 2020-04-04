@@ -23,7 +23,7 @@ ProfileRcRunKeychainInteractiv () {
 			--quiet \
 			--inherit any-once \
 			--stop others \
-			--systemd others \
+			--systemd \
 			--noask --lockwait 0 \
 			--agents ssh "${X_HOST1_SSH_KEY:?}" 1>/dev/null 2>&1;
 	)";
