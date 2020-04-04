@@ -28,7 +28,7 @@
 umask 027;
 
 export ENV;
-ENV=$HOME/.profile.d/profilerc;
+ENV=$HOME/.profilerc;
 {
 	ulimit -n "$(($(ulimit -n) * 8))";
 	ulimit -s "$(($(ulimit -s) * 8))";
@@ -104,10 +104,14 @@ unset -v p;
 
 test "${-##*i*}" = "$-" || {
 	. "$HOME/.profile.d/run.sh";
+
 	\ProfileRcRunGpg;
-	\ProfileRcRunKeychain;
-	\ProfileRcRunDaylight;
+	eval "$(/usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")";
+
+	"${XDG_BIN_HOME:?}/daylight";
+
 	\ProfileRcBaseConsole;
+
 	unalias -a;
 	\ProfileRcBaseAlias;
 };

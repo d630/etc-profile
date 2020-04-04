@@ -84,15 +84,19 @@ ProfileRcExtJava () {
 };
 
 ProfileRcExtLess () {
-	local -;
-	set -a;
-
 	LESSCHARSET=UTF-8;
 	# LESSCOLORIZER=$XDG_BIN_HOME/highlighter;
 	LESS=-R\ -cfMS\ --shift\ 5;
 	LESSCOLOR=1;
 	LESSHISTFILE=/dev/null;
 	LESSOPEN='|"${XDG_BIN_HOME:?}/lesspipew" %s';
+
+	export \
+		LESSCHARSET \
+		LESS \
+		LESSCOLOR \
+		LESSHISTFILE \
+		LESSOPEN;
 };
 
 ProfileRcExtLs () {
@@ -155,13 +159,16 @@ ProfileRcExtPyenv () {
 };
 
 ProfileRcExtQt () {
-	local -;
-	set -a;
-
 	QT_ACCESSIBILITY=1;
 	QT_AUTO_SCREEN_SCALE_FACTOR=1;
 	QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1;
 	QT_STYLE_OVERRIDE=gtk2;
+
+	export \
+		QT_ACCESSIBILITY \
+		QT_AUTO_SCREEN_SCALE_FACTOR \
+		QT_LINUX_ACCESSIBILITY_ALWAYS_ON \
+		QT_STYLE_OVERRIDE;
 };
 
 ProfileRcExtReadline () {
@@ -209,9 +216,6 @@ ProfileRcExtUrldiff () {
 };
 
 ProfileRcExtX () {
-	local -;
-	set -a;
-
 	ICEAUTHORITY=${XDG_VAR_HOME:?}/spool/ICEauthority;
 	XAPPLRESDIR=${XDG_DATA_HOME:?}/X11;
 	XAUTHORITY=$XDG_VAR_HOME/spool/Xauthority;
@@ -220,6 +224,15 @@ ProfileRcExtX () {
 	X_XCLIENT=bspwm;
 
 	XUSERFILESEARCHPATH=${XAPPLRESDIR:?}/%L/%N%C:$XAPPLRESDIR/%l/%N%C:$XAPPLRESDIR/%N%C:$XAPPLRESDIR/%L/%N:$XAPPLRESDIR/%l/%N:$XAPPLRESDIR/%N;
+
+	export \
+		ICEAUTHORITY \
+		XAPPLRESDIR \
+		XAUTHORITY \
+		XERRFILE \
+		XINITRC \
+		X_XCLIENT \
+		XUSERFILESEARCHPATH;
 };
 
 # vim: set ft=sh :

@@ -5,11 +5,11 @@
 ProfileRcBaseAlias () {
 	alias 'sudo=/usr/bin/sudo -H --prompt="%u(%U): " ';
 
-	local p;
 	for p in /sbin/?* /usr/sbin/?*;
 	do
 		alias "${p##*/}=sudo $p";
 	done;
+	unset -v p;
 
 	unalias 'mklost+found' 2>/dev/null;
 
@@ -126,9 +126,6 @@ case $TERM in
 esac;
 
 ProfileRcBaseLocale () {
-	local -;
-	set -a;
-
 	LANG=en_US.UTF-8;
 
 	#LC_ALL=
@@ -137,6 +134,12 @@ ProfileRcBaseLocale () {
 	#LC_MESSAGES=
 	#LC_NUMERIC=
 	LC_TIME=C;
+
+	export \
+		LANG \
+		LC_COLLATE \
+		LC_CTYPE \
+		LC_TIME;
 };
 
 ProfileRcBaseMail () {
@@ -150,9 +153,6 @@ ProfileRcBaseMail () {
 };
 
 ProfileRcBaseTerminfo () {
-	local -;
-	set -a;
-
 	{
 		TI_AM=$(/usr/bin/tput am);
 
@@ -176,6 +176,7 @@ ProfileRcBaseTerminfo () {
 		TI_GREEN_B=$(/usr/bin/tput setab 2);
 		TI_GREEN_F=$(/usr/bin/tput setaf 2 || /usr/bin/tput AF 2);
 		TI_GREEN_F_BOLD=$TI_BOLD$TI_GREEN_F;
+
 		TI_HOME=$(/usr/bin/tput home);
 
 		TI_PURPLE_F=$(/usr/bin/tput setaf 5);
@@ -198,6 +199,40 @@ ProfileRcBaseTerminfo () {
 		TI_YELLOW_F=$(/usr/bin/tput setaf 3);
 		TI_YELLOW_F_BOLD=$TI_BOLD$TI_YELLOW_F;
 	} 2>/dev/null;
+
+	export \
+		TI_AM \
+		TI_BLACK_F \
+		TI_BLACK_F_BOLD \
+		TI_BLUE_F \
+		TI_BLACK_F_BOLD \
+		TI_BOLD \
+		TI_CIVIS \
+		TI_CLEAR \
+		TI_CNORM \
+		TI_CYAN_F \
+		TI_CYAN_F_BOLD \
+		TI_ED \
+		TI_EL \
+		TI_GREEN_B \
+		TI_GREEN_F \
+		TI_GREEN_F_BOLD \
+		TI_HOME \
+		TI_PURPLE_F \
+		TI_PURPLE_F_BOLD \
+		TI_RED_B \
+		TI_RED_F \
+		TI_RED_F_BOLD \
+		TI_RMAM \
+		TI_RMCUP \
+		TI_SGR0 \
+		TI_SMCUP \
+		TI_WHITE_B \
+		TI_WHITE_F \
+		TI_WHITE_F_BOLD \
+		TI_YELLOW_B \
+		TI_YELLOW_F \
+		TI_YELLOW_F_BOLD;
 };
 
 ProfileRcBaseTz () {
@@ -207,9 +242,6 @@ ProfileRcBaseTz () {
 
 ProfileRcBaseUser () {
 	: "${XDG_BIN_HOME:?}";
-
-	local -;
-	set -a;
 
 	AUDIO_PLAYER=/usr/bin/mpv;
 	AUDIO_PLAYER_OPTS=--no-video\|--replaygain=track;
@@ -256,13 +288,55 @@ ProfileRcBaseUser () {
 
 	TMPDIR=/tmp/user/$(/usr/bin/id -u);
 	/bin/mkdir -p "$TMPDIR";
+
+	export \
+		AUDIO_PLAYER \
+		AUDIO_PLAYER_OPTS \
+		BROWSER \
+		BROWSER_OPTS \
+		EDITOR \
+		EDITOR_OPTS \
+		FB_IMAGE_VIEWER \
+		FB_IMAGE_VIEWER_OPTS \
+		FCEDIT \
+		FILE_BROWSER \
+		FILE_BROWSER_OPTS \
+		IMAGE_VIEWER \
+		IMAGE_VIEWER_OPTS \
+		MAIL_VIEWER \
+		MAIL_VIEWER_OPTS \
+		PAGER \
+		PDF_VIEWER \
+		PDF_VIEWER_OPTS \
+		READLINE_EDITOR \
+		READLINE_EDITOR_OPTS \
+		TERMINAL_D \
+		TERMINAL_D_OPTS \
+		TERMINAL_L \
+		TERMINAL_L_OPTS \
+		VISUAL \
+		VISUAL_OPTS \
+		X_AUDIO_PLAYER \
+		X_AUDIO_PLAYER_OPTS \
+		X_BROWSER \
+		X_BROWSER_OPTS \
+		X_FILE_BROWSER \
+		X_FILE_BROWSER_OPTS \
+		X_IMAGE_VIEWER \
+		X_IMAGE_VIEWER_OPTS \
+		X_MAIL_VIEWER \
+		X_MAIL_VIEWER_OPTS \
+		X_PDF_VIEWER \
+		X_PDF_VIEWER_OPTS \
+		X_VIDEO_PLAYER \
+		X_VIDEO_PLAYER_OPTS \
+		X_VISUAL \
+		X_VISUAL_OPTS \
+		TMPDIR;
 };
 
 ProfileRcBaseXdg () {
 	HOME=${HOME:-/home/$(/usr/bin/id -un)};
-
-	local -;
-	set -a;
 
 	XDG_VAR_HOME=$HOME/var;
 	XDG_CONFIG_HOME=$HOME/etc;
@@ -281,6 +355,27 @@ ProfileRcBaseXdg () {
 
 	test -r "$XDG_CONFIG_HOME/user-dirs.dirs" &&
 		. "$XDG_CONFIG_HOME/user-dirs.dirs";
+
+	export \
+		XDG_BACKUP_HOME \
+		XDG_BIN_HOME \
+		XDG_CACHE_HOME \
+		XDG_CONFIG_DIRS \
+		XDG_CONFIG_HOME \
+		XDG_DATA_DIRS \
+		XDG_DATA_HOME \
+		XDG_DESKTOP_DIR \
+		XDG_DOCUMENTS_DIR \
+		XDG_DOWNLOAD_DIR \
+		XDG_MUSIC_DIR \
+		XDG_OPT_HOME \
+		XDG_PICTURES_DIR \
+		XDG_PUBLICSHARE_DIR \
+		XDG_SRC_HOME \
+		XDG_TEMPLATES_DIR \
+		XDG_TMP_HOME \
+		XDG_VAR_HOME \
+		XDG_VIDEOS_DIR;
 };
 
 ProfileRcBaseXdgExt () {
