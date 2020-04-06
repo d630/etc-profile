@@ -43,6 +43,7 @@ ENV=$HOME/.profilerc;
 \ProfileRcBaseTz;
 \ProfileRcBaseUser;
 \ProfileRcBaseTerminfo;
+\ProfileRcBaseProduct;
 
 . "$HOME/.profile.d/ext.sh";
 \ProfileRcExtAtSpi;

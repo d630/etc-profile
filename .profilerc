@@ -30,7 +30,6 @@ test "${-##*i*}" = "$-" || {
 		SHELL=$cmd;
 	};
 
-	echo $cmd
 	unset -v rc cmd;
 };
 

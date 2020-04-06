@@ -94,34 +94,11 @@ ProfileRcBaseAlias () {
 ProfileRcBaseConsole ()
 case $TERM in
 	(linux*)
+		# TODO
 		# export TERM=linux-16color
 		/usr/bin/setterm --blank 0 --powerdown 0 --powersave 0 \
 			--bfreq 0 --blength 0 1>/dev/null 2>&1;
-		/usr/bin/sudo /sbin/kbdrate -d 250 -r 30.0 1>/dev/null 2>&1;
-		/usr/bin/sudo /usr/bin/loadkeys \
-			"${XDG_CONFIG_HOME:?}/xmodmap/us-altgr-german.rc.map" 1>/dev/null 2>&1;
 		/usr/bin/mesg y 2>/dev/null;
-		if
-			test -e "${XDG_RUNTIME_DIR:?}/DAYLIGHT";
-		then
-			printf '\e]P0eee8d5'; # S_base02
-			printf '\e]P7073642'; # S_base2
-			printf '\e]P8fdf6e3'; # S_base03
-			printf '\e]PA93a1a1'; # S_base01
-			printf '\e]PB839496'; # S_base00
-			printf '\e]PC657b83'; # S_base0
-			printf '\e]PE586e75'; # S_base1
-			printf '\e]PF002b36'; # S_base3
-		else
-			printf '\e]P0073642'; # S_base02
-			printf '\e]P7eee8d5'; # S_base2
-			printf '\e]P8002b36'; # S_base03
-			printf '\e]PA586e75'; # S_base01
-			printf '\e]PB657b83'; # S_base00
-			printf '\e]PC839496'; # S_base0
-			printf '\e]PE93a1a1'; # S_base1
-			printf '\e]PFfdf6e3'; # S_base3
-		fi;
 		/usr/bin/setterm -store;
 esac;
 
@@ -151,6 +128,11 @@ ProfileRcBaseMail () {
 		MAIL \
 		MAILCHECK;
 };
+
+ProfileRcBaseProduct() {
+	PRODUCT_NAME_SUM=$("${XDG_BIN_HOME:?}"/get-product-name-by-md5sum);
+	export PRODUCT_NAME_SUM;
+}
 
 ProfileRcBaseTerminfo () {
 	{
