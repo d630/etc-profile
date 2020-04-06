@@ -94,11 +94,9 @@ ProfileRcBaseAlias () {
 ProfileRcBaseConsole ()
 case $TERM in
 	(linux*)
-		# TODO
 		# export TERM=linux-16color
-		/usr/bin/setterm --blank 0 --powerdown 0 --powersave 0 \
-			--bfreq 0 --blength 0 1>/dev/null 2>&1;
-		/usr/bin/mesg y 2>/dev/null;
+		/usr/bin/setterm --blank 0 --powerdown 0 --powersave off \
+			--bfreq 0 --blength 0;
 		/usr/bin/setterm -store;
 esac;
 
