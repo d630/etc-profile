@@ -42,7 +42,6 @@ ENV=$HOME/.profilerc;
 \ProfileRcBaseMail;
 \ProfileRcBaseTz;
 \ProfileRcBaseUser;
-\ProfileRcBaseTerminfo;
 \ProfileRcBaseProduct;
 
 . "$HOME/.profile.d/ext.sh";
@@ -106,12 +105,13 @@ unset -v p;
 test "${-##*i*}" = "$-" || {
 	. "$HOME/.profile.d/run.sh";
 
-	\ProfileRcRunGpg;
-	eval "$(/usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")";
+	\ProfileRcRunConsole;
+	"${XDG_BIN_HOME:?}/keyboard";
 
 	"${XDG_BIN_HOME:?}/daylight";
 
-	\ProfileRcBaseConsole;
+	\ProfileRcRunGpg;
+	eval "$(/usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")";
 
 	unalias -a;
 	\ProfileRcBaseAlias;

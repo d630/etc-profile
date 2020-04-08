@@ -61,7 +61,6 @@ ProfileRcBaseAlias () {
 	alias 'XX=. startx.sh';
 	alias 'chdir=cd';
 	alias 'command=command ';
-	alias 'console-color=\ProfileRcBaseConsole';
 	alias 'd630=mutt--d630';
 	alias 'dz=daemonize ';
 	alias 'filetest=tcsh--filetest';
@@ -90,15 +89,6 @@ ProfileRcBaseAlias () {
 	alias 'wv=wvim';
 	alias 'zeit=show-zeit';
 };
-
-ProfileRcBaseConsole ()
-case $TERM in
-	(linux*)
-		# export TERM=linux-16color
-		/usr/bin/setterm --blank 0 --powerdown 0 --powersave off \
-			--bfreq 0 --blength 0;
-		/usr/bin/setterm -store;
-esac;
 
 ProfileRcBaseLocale () {
 	LANG=en_US.UTF-8;
@@ -131,89 +121,6 @@ ProfileRcBaseProduct() {
 	PRODUCT_NAME_SUM=$("${XDG_BIN_HOME:?}"/get-product-name-by-md5sum);
 	export PRODUCT_NAME_SUM;
 }
-
-ProfileRcBaseTerminfo () {
-	{
-		TI_AM=$(/usr/bin/tput am);
-
-		TI_BLACK_F=$(/usr/bin/tput setaf 0);
-		TI_BLACK_F_BOLD=${TI_BOLD}${TI_BLACK_F};
-
-		TI_BLUE_F=$(/usr/bin/tput setaf 4 || /usr/bin/tput AF 4);
-		TI_BLUE_F_BOLD=${TI_BOLD}${TI_BLUE_F};
-
-		TI_BOLD=$(/usr/bin/tput bold || /usr/bin/tput md);
-		TI_CIVIS=$(/usr/bin/tput civis || /usr/bin/tput vi);
-		TI_CLEAR=$(/usr/bin/tput clear);
-		TI_CNORM=$(/usr/bin/tput cnorm || /usr/bin/tput ve);
-
-		TI_CYAN_F=$(/usr/bin/tput setaf 6);
-		TI_CYAN_F_BOLD=$TI_BOLD$TI_CYAN_F;
-
-		TI_ED=$(/usr/bin/tput ed);
-		TI_EL=$(/usr/bin/tput el || /usr/bin/tput ce);
-
-		TI_GREEN_B=$(/usr/bin/tput setab 2);
-		TI_GREEN_F=$(/usr/bin/tput setaf 2 || /usr/bin/tput AF 2);
-		TI_GREEN_F_BOLD=$TI_BOLD$TI_GREEN_F;
-
-		TI_HOME=$(/usr/bin/tput home);
-
-		TI_PURPLE_F=$(/usr/bin/tput setaf 5);
-		TI_PURPLE_F_BOLD=$TI_BOLD$TI_PURPLE_F;
-
-		TI_RED_B=$(/usr/bin/tput setab 1);
-		TI_RED_F=$(/usr/bin/tput setaf 1);
-		TI_RED_F_BOLD=$TI_BOLD$TI_RED_F;
-
-		TI_RMAM=$(/usr/bin/tput rmam);
-		TI_RMCUP=$(/usr/bin/tput rmcup || /usr/bin/tput te);
-		TI_SGR0=$(/usr/bin/tput sgr0 || /usr/bin/tput me);
-		TI_SMCUP=$(/usr/bin/tput smcup || /usr/bin/tput ti);
-
-		TI_WHITE_B=$(/usr/bin/tput setab 7);
-		TI_WHITE_F=$(/usr/bin/tput setaf 7 || /usr/bin/tput AF 7);
-		TI_WHITE_F_BOLD=$TI_BOLD$TI_WHITE_F;
-
-		TI_YELLOW_B=$(/usr/bin/tput setab 3);
-		TI_YELLOW_F=$(/usr/bin/tput setaf 3);
-		TI_YELLOW_F_BOLD=$TI_BOLD$TI_YELLOW_F;
-	} 2>/dev/null;
-
-	export \
-		TI_AM \
-		TI_BLACK_F \
-		TI_BLACK_F_BOLD \
-		TI_BLUE_F \
-		TI_BLACK_F_BOLD \
-		TI_BOLD \
-		TI_CIVIS \
-		TI_CLEAR \
-		TI_CNORM \
-		TI_CYAN_F \
-		TI_CYAN_F_BOLD \
-		TI_ED \
-		TI_EL \
-		TI_GREEN_B \
-		TI_GREEN_F \
-		TI_GREEN_F_BOLD \
-		TI_HOME \
-		TI_PURPLE_F \
-		TI_PURPLE_F_BOLD \
-		TI_RED_B \
-		TI_RED_F \
-		TI_RED_F_BOLD \
-		TI_RMAM \
-		TI_RMCUP \
-		TI_SGR0 \
-		TI_SMCUP \
-		TI_WHITE_B \
-		TI_WHITE_F \
-		TI_WHITE_F_BOLD \
-		TI_YELLOW_B \
-		TI_YELLOW_F \
-		TI_YELLOW_F_BOLD;
-};
 
 ProfileRcBaseTz () {
 	TZ=Europe/Berlin;
