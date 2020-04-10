@@ -2,21 +2,6 @@
 #
 # ProfileRcRun.
 
-ProfileRcRunConsole () {
-	# TODO
-
-	/bin/fgconsole 1>/dev/null 2>&1 ||
-		return 1;
-
-	case $TERM in
-		(linux*)
-			# export TERM=linux-16color
-			/usr/bin/setterm --blank 0 --powerdown 0 --powersave off \
-				--bfreq 0 --blength 0;
-			/usr/bin/setterm -store;
-	esac;
-}
-
 ProfileRcRunGpg () {
 	GPG_TTY=$(/usr/bin/tty);
 	GPG_AGENT_INFO=;

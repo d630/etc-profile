@@ -103,12 +103,13 @@ PATH=${PATH%:};
 unset -v p;
 
 test "${-##*i*}" = "$-" || {
+	test "$(cat "/proc/$PPID/comm")" = login && {
+		"${XDG_BIN_HOME:?}/monitor";
+		"$XDG_BIN_HOME/keyboard";
+		"$XDG_BIN_HOME/daylight";
+	};
+
 	. "$HOME/.profile.d/run.sh";
-
-	\ProfileRcRunConsole;
-	"${XDG_BIN_HOME:?}/keyboard";
-
-	"${XDG_BIN_HOME:?}/daylight";
 
 	\ProfileRcRunGpg;
 	eval "$(/usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")";
