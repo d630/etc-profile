@@ -12,7 +12,7 @@
 #  and after exec(2) a login shell, which is configured in /etc/passwd
 #  and loads /etc/profile (-> /etc/profile.d/*).
 #
-# If the login is handled with a display manager like xdm(1) for having a
+# If the login is handled by a display manager like xdm(1) for having a
 #  graphical login into X and not with xinit(1)/startx(1), no login shell is
 #  executed. Because of that, we need to set environments during processing
 #  of /etc/X11/Xsession (-> $HOME/.xsessionrc, -> $HOME/.xsession).
@@ -104,8 +104,8 @@ unset -v p;
 
 test "${-##*i*}" = "$-" || {
 	test "$(cat "/proc/$PPID/comm")" = login && {
-		"${XDG_BIN_HOME:?}/monitor";
-		"$XDG_BIN_HOME/keyboard";
+		"${XDG_BIN_HOME:?}/reconfigure-monitor";
+		"$XDG_BIN_HOME/reconfigure-keyboard";
 		"$XDG_BIN_HOME/daylight";
 	};
 

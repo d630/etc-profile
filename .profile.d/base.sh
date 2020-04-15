@@ -35,16 +35,13 @@ ProfileRcBaseAlias () {
 	alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
 	alias 'dc=/usr/bin/rlwrap /usr/bin/dc';
 	alias 'df=/bin/df -h';
-	alias 'diff=/usr/bin/colordiff';
 	alias 'dir=/bin/dir -h --color=never';
 	alias 'du=/usr/bin/du -h';
 	alias 'egrep=/bin/grep -E --color=auto';
 	alias 'fgrep=/bin/grep -F --color=auto';
-	alias 'gcc=/usr/bin/colorgcc';
 	alias 'grep=/bin/grep --color=auto';
 	alias 'ln=/bin/ln -v';
 	alias 'ls=/bin/ls -h --color=auto';
-	alias 'make=/usr/bin/colormake';
 	alias 'mkdir=/bin/mkdir -v';
 	alias 'mv=/bin/mv -v';
 	alias 'nawk=/usr/bin/original-awk';
@@ -52,7 +49,6 @@ ProfileRcBaseAlias () {
 	alias 'rgrep=/bin/grep -r --color=auto';
 	alias 'rm=/bin/rm -v';
 	alias 'rsync=/usr/bin/rsync -v';
-	alias 'tail=/usr/bin/colortail';
 	alias 'vdir=/bin/vdir -h --color=never';
 	alias 'vf=/usr/bin/vifm';
 
@@ -87,7 +83,6 @@ ProfileRcBaseAlias () {
 	alias 'unsetenv=unset';
 	alias 'wl=wless';
 	alias 'wv=wvim';
-	alias 'zeit=show-zeit';
 };
 
 ProfileRcBaseLocale () {
