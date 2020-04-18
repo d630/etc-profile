@@ -97,6 +97,7 @@ $PYTHONUSERBASE/bin
 $PYENV_ROOT/bin
 $XDG_OPT_HOME/cabal/bin
 $XDG_OPT_HOME/npm/bin
+$XDG_OPT_HOME/misc/bin
 P
 
 PATH=${PATH%:};

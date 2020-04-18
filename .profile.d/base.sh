@@ -59,7 +59,6 @@ ProfileRcBaseAlias () {
 	alias 'command=command ';
 	alias 'd630=mutt--d630';
 	alias 'dz=daemonize ';
-	alias 'filetest=tcsh--filetest';
 	alias 'forever=while :;';
 	alias 'gmail=mutt--gmail';
 	alias 'hotmail=mutt--hotmail';
@@ -113,7 +112,7 @@ ProfileRcBaseMail () {
 };
 
 ProfileRcBaseProduct() {
-	PRODUCT_NAME_SUM=$("${XDG_BIN_HOME:?}"/get-product-name-by-md5sum);
+	PRODUCT_NAME_SUM=$("${XDG_BIN_HOME:?}/get-product-name-by-md5sum");
 	export PRODUCT_NAME_SUM;
 }
 
@@ -153,7 +152,7 @@ ProfileRcBaseUser () {
 	VISUAL_OPTS=-f;
 	X_AUDIO_PLAYER=/usr/bin/mpv;
 	X_AUDIO_PLAYER_OPTS=--profile=pseudo-gui\|--no-video\|--replaygain=track\|--autofit=50%x50%\|--no-stop-screensaver;
-	X_BROWSER=$XDG_BIN_HOME/chromiumw;
+	X_BROWSER=$XDG_BIN_HOME/run-chromium;
 	X_BROWSER_OPTS=;
 	X_FILE_BROWSER=/usr/bin/spacefm;
 	X_FILE_BROWSER_OPTS=
