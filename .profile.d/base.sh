@@ -28,11 +28,11 @@ ProfileRcBaseAlias () {
 	alias 've=o -A vedit -f';
 	alias 'vv=o -A vview -f';
 
+	alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
 	alias 'chmod=/bin/chmod -v';
 	alias 'chown=/bin/chown -v';
 	alias 'cp=/bin/cp -v';
 	alias 'dash=/usr/bin/rlwrap -ic /bin/dash';
-	alias "ed=/usr/bin/rlwrap /bin/ed -Gp '> '";
 	alias 'dc=/usr/bin/rlwrap /usr/bin/dc';
 	alias 'df=/bin/df -h';
 	alias 'dir=/bin/dir -h --color=never';
@@ -43,6 +43,7 @@ ProfileRcBaseAlias () {
 	alias 'ln=/bin/ln -v';
 	alias 'ls=/bin/ls -h --color=auto';
 	alias 'mkdir=/bin/mkdir -v';
+	alias 'mount=mount -v';
 	alias 'mv=/bin/mv -v';
 	alias 'nawk=/usr/bin/original-awk';
 	alias 'nohup=/usr/bin/nohup ';
