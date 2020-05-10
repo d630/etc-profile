@@ -43,13 +43,14 @@ ProfileRcBaseAlias () {
 	alias 'ln=/bin/ln -v';
 	alias 'ls=/bin/ls -h --color=auto';
 	alias 'mkdir=/bin/mkdir -v';
-	alias 'mount=mount -v';
+	alias 'mount=/bin/mount -v';
 	alias 'mv=/bin/mv -v';
 	alias 'nawk=/usr/bin/original-awk';
 	alias 'nohup=/usr/bin/nohup ';
 	alias 'rgrep=/bin/grep -r --color=auto';
 	alias 'rm=/bin/rm -v';
 	alias 'rsync=/usr/bin/rsync -v';
+	alias 'umount=/bin/umount -v';
 	alias 'vdir=/bin/vdir -h --color=never';
 	alias 'vf=/usr/bin/vifm';
 
