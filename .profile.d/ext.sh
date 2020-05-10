@@ -57,14 +57,7 @@ ProfileRcExtGlib () {
 };
 
 ProfileRcExtGtk () {
-	if
-		test "$X_DPI" -gt 96;
-	then
-		GDK_SCALE=2;
-	else
-		GDK_SCALE=1;
-	fi;
-
+	: "$((GDK_SCALE = X_DPI > 96 ? 2 : 1))";
 	export GDK_SCALE;
 };
 
