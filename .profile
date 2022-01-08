@@ -25,58 +25,56 @@
 #
 # So, no *isms here!
 
-umask 027;
+umask 027
 
-export ENV;
-ENV=$HOME/.profilerc;
+export ENV
+ENV=$HOME/.profilerc
 {
-	ulimit -n "$(($(ulimit -n) * 8))";
-	ulimit -s "$(($(ulimit -s) * 8))";
-	ulimit -c 0;
-} 2>/dev/null;
+    ulimit -n "$(($(ulimit -n) * 8))"
+    ulimit -s "$(($(ulimit -s) * 8))"
+    ulimit -c 0
+} 2>/dev/null
 
-. "$HOME/.profile.d/base.sh";
-\ProfileRcBaseXdg;
-\ProfileRcBaseXdgExt;
-\ProfileRcBaseLocale;
-\ProfileRcBaseMail;
-\ProfileRcBaseTz;
-\ProfileRcBaseUser;
-\ProfileRcBaseProduct;
+. "$HOME/.profile.d/base.sh"
+\ProfileRcBaseXdg
+\ProfileRcBaseXdgExt
+\ProfileRcBaseLocale
+\ProfileRcBaseMail
+\ProfileRcBaseTz
+\ProfileRcBaseUser
+\ProfileRcBaseProduct
 
-. "$HOME/.profile.d/ext.sh";
-\ProfileRcExtAtSpi;
-\ProfileRcExtBc;
-\ProfileRcExtCabal;
-\ProfileRcExtFreetype;
-\ProfileRcExtGo;
-\ProfileRcExtInfo;
-\ProfileRcExtJava;
-\ProfileRcExtLess;
-\ProfileRcExtMan;
-\ProfileRcExtNet;
-\ProfileRcExtNode;
-\ProfileRcExtNodeNpm;
-\ProfileRcExtPerl;
-\ProfileRcExtPerlCpanm;
-\ProfileRcExtPhpComposer;
-\ProfileRcExtPython;
-\ProfileRcExtPyenv;
-\ProfileRcExtReadline;
-\ProfileRcExtRustCargo;
-\ProfileRcExtTaskum;
-\ProfileRcExtTerminfo;
-\ProfileRcExtTex;
-\ProfileRcExtUrimark;
-\ProfileRcExtUrldiff;
-\ProfileRcExtX;
+. "$HOME/.profile.d/ext.sh"
+\ProfileRcExtAtSpi
+\ProfileRcExtBc
+\ProfileRcExtCabal
+\ProfileRcExtFreetype
+\ProfileRcExtGo
+\ProfileRcExtInfo
+\ProfileRcExtJava
+\ProfileRcExtLess
+\ProfileRcExtMan
+\ProfileRcExtNet
+\ProfileRcExtNode
+\ProfileRcExtNodeNpm
+\ProfileRcExtPerl
+\ProfileRcExtPerlCpanm
+\ProfileRcExtPhpComposer
+\ProfileRcExtPython
+\ProfileRcExtPyenv
+\ProfileRcExtReadline
+\ProfileRcExtRustCargo
+\ProfileRcExtTaskum
+\ProfileRcExtTerminfo
+\ProfileRcExtTex
+\ProfileRcExtUrimark
+\ProfileRcExtUrldiff
+\ProfileRcExtX
 
-export PATH;
-PATH=;
-while
-	read -r p;
-do
-	PATH=$p:$PATH;
+export PATH
+PATH=
+while IFS= read -r p; do
+    PATH=$p:$PATH
 done <<P
 /bin
 /sbin
@@ -100,25 +98,25 @@ $XDG_OPT_HOME/npm/bin
 $XDG_OPT_HOME/misc/bin
 P
 
-PATH=${PATH%:};
-unset -v p;
+PATH=${PATH%:}
+unset -v p
 
-test "${-##*i*}" = "$-" || {
-	test "$(cat "/proc/$PPID/comm")" = login && {
-		"${XDG_BIN_HOME:?}/reconfigure-monitor";
-		"$XDG_BIN_HOME/reconfigure-keyboard";
-		"$XDG_BIN_HOME/daylight";
-	};
+if test "${-##*i*}" != "$-"; then
+    if test "$(exec cat "/proc/$PPID/comm")" = login; then
+        command -- "${XDG_BIN_HOME:?}/reconfigure-monitor"
+        command -- "$XDG_BIN_HOME/reconfigure-keyboard"
+        command -- "$XDG_BIN_HOME/daylight"
+    fi
 
-	. "$HOME/.profile.d/run.sh";
+    . "$HOME/.profile.d/run.sh"
 
-	\ProfileRcRunGpg;
-	eval "$(/usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")";
+    \ProfileRcRunGpg
+    eval "$(exec /usr/bin/keychain --eval -Q --agents ssh "${X_HOST1_SSH_KEY:?}")"
 
-	unalias -a;
-	\ProfileRcBaseAlias;
-};
+    unalias -a
+    \ProfileRcBaseAlias
+fi
 
-\ProfileRcExtDbus;
+\ProfileRcExtDbus
 
 # vim: set ft=sh :
