@@ -3,34 +3,37 @@
 # profilerc
 # Referenced by ENV in dash, ksh, bash --posix, yash -o posix, mksh etc.
 
-test "${-##*i*}" = "$-" || {
-	rc=;
-	cmd=$(/usr/bin/env /usr/bin/which "$(/usr/bin/basename "$(/bin/readlink -f "$0")")");
-	HOME=${HOME:-/home/$(/usr/bin/id -un)};
+if test "${-##*i*}" != "$-"; then
+    rc=
+    cmd=$(command -v -- "$(command -- /usr/bin/basename "$(command -- /bin/readlink -f "$0")")")
+    HOME=${HOME:-/home/$(/usr/bin/id -un)}
 
-	case $cmd in
-		(/bin/mksh)
-			case $KSH_VERSION in
-				(*MIRBSD\ KSH*)
-					rc=$HOME/.mkshrc;;
-			esac;;
-		(/usr/bin/ksh)
-			case $KSH_VERSION in
-				(*AJM*|Version\ A*)
-					rc=$HOME/.kshrc;;
-			esac;;
-		(/bin/bash|/bin/dash|/usr/bin/yash)
-			POSIXLY_CORRECT=y;
-			export POSIXLY_CORRECT;
-			rc=$HOME/.dashrc;;
-	esac;
+    case $cmd in
+        (/bin/mksh | /usr/bin/mksh)
+            case $KSH_VERSION in
+                (*MIRBSD\ KSH*)
+                    rc=$HOME/.mkshrc
+                    ;;
+            esac;;
+        (/usr/bin/ksh)
+            case $KSH_VERSION in
+                (*AJM*|Version\ A*)
+                    rc=$HOME/.kshrc
+                    ;;
+            esac;;
+        (/bin/bash | /bin/dash | /usr/bin/dash | /usr/bin/yash)
+            POSIXLY_CORRECT=y
+            export POSIXLY_CORRECT
+            rc=$HOME/.dashrc
+            ;;
+    esac;
 
-	test -r "$rc" && {
-		. "$rc";
-		SHELL=$cmd;
-	};
+    if test -r "$rc"; then
+        . "$rc"
+        SHELL=$cmd
+    fi
 
-	unset -v rc cmd;
-};
+    unset -v rc cmd
+fi
 
 # vim: set ft=sh :
