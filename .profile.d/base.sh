@@ -113,7 +113,7 @@ ProfileRcBaseMail() {
 }
 
 ProfileRcBaseProduct() {
-    PRODUCT_NAME_SUM=$(exec "${XDG_BIN_HOME:?}/get-product-name-by-md5sum")
+    PRODUCT_NAME_SUM=$(exec "${XDG_BIN_HOME:?}/get-product-name-as-sha256sum")
     export PRODUCT_NAME_SUM
 }
 
