@@ -62,6 +62,7 @@ ENV=$HOME/.profilerc
 \ProfileRcExtPhpComposer
 \ProfileRcExtPython
 \ProfileRcExtPyenv
+\ProfileRcExtPipx
 \ProfileRcExtReadline
 \ProfileRcExtRustCargo
 \ProfileRcExtTaskum
@@ -93,6 +94,7 @@ $GOPATH/bin
 $PERL_LOCAL_LIB_ROOT/bin
 $PYTHONUSERBASE/bin
 $PYENV_ROOT/bin
+$PIPX_BIN_DIR
 $XDG_OPT_HOME/cabal/bin
 $XDG_OPT_HOME/npm/bin
 $XDG_OPT_HOME/misc/bin

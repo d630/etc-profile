@@ -139,6 +139,14 @@ ProfileRcExtPhpComposer() {
     export COMPOSER_HOME
 }
 
+ProfileRcExtPipx() {
+    PIPX_HOME=${PYTHONUSERBASE:?}/lib/pipx
+    PIPX_BIN_DIR=${PYTHONUSERBASE:?}/bin-pipx
+    export \
+        PIPX_HOME \
+        PIPX_BIN_DIR
+}
+
 ProfileRcExtPython() {
     PYTHONUSERBASE=${XDG_OPT_HOME:?}/python
     export PYTHONUSERBASE
