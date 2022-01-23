@@ -141,7 +141,7 @@ ProfileRcExtPhpComposer() {
 
 ProfileRcExtPipx() {
     PIPX_HOME=${PYTHONUSERBASE:?}/lib/pipx
-    PIPX_BIN_DIR=${PYTHONUSERBASE:?}/bin-pipx
+    PIPX_BIN_DIR=$PYTHONUSERBASE/bin-pipx
     export \
         PIPX_HOME \
         PIPX_BIN_DIR
