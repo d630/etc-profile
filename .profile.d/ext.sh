@@ -28,6 +28,7 @@ ProfileRcExtDbus() {
     command -- /usr/bin/dbus-update-activation-environment --systemd \
         DBUS_SESSION_BUS_ADDRESS \
         DISPLAY \
+        GDK_DPI_SCALE \
         GDK_SCALE \
         PATH \
         QT_ACCESSIBILITY \
@@ -47,16 +48,28 @@ ProfileRcExtGlib() {
     command -- /usr/bin/gsettings set org.gtk.Settings.FileChooser startup-mode cwd
     command -- /usr/bin/gsettings set org.gnome.desktop.interface gtk-key-theme Emacs
 
-    if test "$X_DPI" -gt 96; then
+    if test "$X_DPI" -ge 192; then
+        command -- /usr/bin/gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"
         command -- /usr/bin/gsettings set org.gnome.desktop.interface scaling-factor 2
+        command -- /usr/bin/gsettings set org.gnome.desktop.interface text-scaling-factor 1.5
     else
+        command -- /usr/bin/gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <1>}]"
         command -- /usr/bin/gsettings set org.gnome.desktop.interface scaling-factor 1
+        command -- /usr/bin/gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
     fi
 }
 
 ProfileRcExtGtk() {
-    : "$((GDK_SCALE = X_DPI > 96 ? 2 : 1))"
-    export GDK_SCALE
+    if "$X_DPI" -ge 192; then
+       GDK_DPI_SCALE=0.5
+    else
+       GDK_DPI_SCALE=1.0
+    fi
+    : "$((GDK_SCALE = X_DPI >= 192 ? 2 : 1))"
+
+    export \
+        GDK_DPI_SCALE \
+        GDK_SCALE
 }
 
 ProfileRcExtGo() {
